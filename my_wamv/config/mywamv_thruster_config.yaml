@@ -1,0 +1,10 @@
+engine:
+  - prefix: "center_thruster"
+    position: "0.0 0.0 0.318237"
+    orientation: "0.0 0.0 1.570796"
+  - prefix: "left_thruster"
+    position: "-2.373776 1.027135 0.318237"
+    orientation: "0.0 0.0 0.0"
+  - prefix: "right_thruster"
+    position: "-2.373776 -1.027135 0.318237"
+    orientation: "0.0 0.0 0.0"
