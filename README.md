@@ -19,18 +19,57 @@ gazebo garden v7.9.0
 vrx v2.4.1
 ```
 
-### 1.安装基础环境
+### 一、安装基础环境
 
-按照官方文档安装*ROS 2 Jazzy* 和 *Gazebo Harmonic*:
+1.按照官方文档安装*ROS 2 Jazzy* 和 *Gazebo Harmonic*:
 
 - [<u>ROS 2 Jazzy</u>](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html)
 - [<u>Gazebo Harmonic</u>](https://gazebosim.org/docs/harmonic/install_ubuntu/)
 
-安装依赖：
+2.安装依赖：
 
 ```bash
 sudo apt install python3-sdformat14 ros-jazzy-xacro
 ```
+
+### 二、安装VRX
+
+1.创建colcon工作空间并克隆VRX仓库
+
+```bash
+mkdir -p ~/vrx_ws/src
+cd ~/vrx_ws/src
+git clone https://github.com/osrf/vrx.git
+```
+
+2.加载ROS2环境
+
+```bash
+source /opt/ros/jazzy/setup.bash
+```
+
+3.构建工作空间
+
+```bash
+cd ~/vrx_ws
+colcon build --merge-install
+```
+
+4.配置运行环境
+
+构建完成后，每次运行仿真前，都要加载 `setup.bash` 脚本。在根目录执行：
+
+```bash
+. install/setup.bash
+```
+
+（可选）为避免每次启动都要加载，可以在 ~/.bashrc 文件(隐藏文件)中添加：
+
+```bash
+source ~/vrx_ws/install/setup.bash
+```
+
+
 # station_keeping
 # way_finding
 # path_following
