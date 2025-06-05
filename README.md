@@ -69,6 +69,13 @@ colcon build --merge-install
 source ~/vrx_ws/install/setup.bash
 ```
 
+5.尝试运行
+
+第一次运行时，会同步从 [vrx collection on Fuel](https://app.gazebosim.org/OpenRobotics/fuel/collections/vrx) 下载3D模型，可能需要等待一段时间。
+
+```bash
+ros2 launch vrx_gz competition.launch.py world:=sydney_regatta
+```
 
 
 
