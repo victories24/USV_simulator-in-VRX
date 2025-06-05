@@ -26,6 +26,11 @@ vrx v2.4.1
 - [<u>ROS 2 Jazzy</u>](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html)
 - [<u>Gazebo Harmonic</u>](https://gazebosim.org/docs/harmonic/install_ubuntu/)
 
+安装依赖：
+
+```bash
+sudo apt install python3-sdformat14 ros-jazzy-xacro
+```
 # station_keeping
 # way_finding
 # path_following
