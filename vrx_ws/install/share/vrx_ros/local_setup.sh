@@ -1,0 +1,1 @@
+/home/cj/vrx_ws/build/vrx_ros/ament_cmake_environment_hooks/local_setup.sh

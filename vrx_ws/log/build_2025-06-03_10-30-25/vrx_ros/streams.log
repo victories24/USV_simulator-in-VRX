@@ -1,0 +1,7 @@
+[0.014s] Invoking command in '/home/cj/vrx_ws/build/vrx_ros': CMAKE_PREFIX_PATH=/home/cj/ros2_ws/install/launch_testing_examples:/home/cj/ros2_ws/install/examples_rclpy_pointcloud_publisher:/home/cj/ros2_ws/install/examples_rclpy_minimal_subscriber:/home/cj/ros2_ws/install/examples_rclpy_minimal_service:/home/cj/ros2_ws/install/examples_rclpy_minimal_publisher:/home/cj/ros2_ws/install/examples_rclpy_minimal_client:/home/cj/ros2_ws/install/examples_rclpy_minimal_action_server:/home/cj/ros2_ws/install/examples_rclpy_minimal_action_client:/home/cj/ros2_ws/install/examples_rclpy_guard_conditions:/home/cj/ros2_ws/install/examples_rclpy_executors:/opt/ros/humble:${CMAKE_PREFIX_PATH} /usr/bin/cmake --build /home/cj/vrx_ws/build/vrx_ros -- -j16 -l16
+[0.084s] [ 25%] [32mBuilding CXX object CMakeFiles/optical_frame_publisher.dir/src/optical_frame_publisher.cc.o[0m
+[0.086s] [ 50%] [32mBuilding CXX object CMakeFiles/pose_tf_broadcaster.dir/src/pose_tf_broadcaster.cc.o[0m
+[5.397s] [ 75%] [32m[1mLinking CXX executable pose_tf_broadcaster[0m
+[5.701s] [ 75%] Built target pose_tf_broadcaster
+[7.487s] [100%] [32m[1mLinking CXX executable optical_frame_publisher[0m
+[7.898s] [100%] Built target optical_frame_publisher

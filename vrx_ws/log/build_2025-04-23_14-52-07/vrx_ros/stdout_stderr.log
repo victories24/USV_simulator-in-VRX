@@ -1,0 +1,6 @@
+[35m[1mConsolidate compiler generated dependencies of target pose_tf_broadcaster[0m
+[35m[1mConsolidate compiler generated dependencies of target optical_frame_publisher[0m
+[ 25%] [32m[1mLinking CXX executable optical_frame_publisher[0m
+[ 50%] [32m[1mLinking CXX executable pose_tf_broadcaster[0m
+[ 75%] Built target pose_tf_broadcaster
+[100%] Built target optical_frame_publisher

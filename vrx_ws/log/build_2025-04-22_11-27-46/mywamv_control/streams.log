@@ -1,0 +1,4 @@
+[0.008s] Invoking command in '/home/cj/vrx_ws/build/mywamv_control': /usr/bin/cmake /home/cj/vrx_ws/src/mywamv_control -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/home/cj/vrx_ws/install
+[0.015s] [0mCMake Error: The source directory "/home/cj/vrx_ws/src/mywamv_control" does not appear to contain CMakeLists.txt.
+[0.015s] Specify --help for usage, or press the help button on the CMake GUI.[0m
+[0.016s] Invoked command in '/home/cj/vrx_ws/build/mywamv_control' returned '1': /usr/bin/cmake /home/cj/vrx_ws/src/mywamv_control -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/home/cj/vrx_ws/install

@@ -1,0 +1,33 @@
+name: Ubuntu CI
+
+on: [pull_request]
+
+jobs:
+  test-humble-garden:
+
+    runs-on: ubuntu-22.04
+    container: 
+      image: npslearninglab/watery_robots:humble_current
+    steps:
+      - name: Checkout vrx
+        uses: actions/checkout@v3
+        with:
+            ref: main
+            path: vrx
+
+      - name: Create developer user 
+        run: |
+          useradd -m -u 1001 developer;
+
+      - name: Set up workspace
+        run: |
+          mkdir -p /home/developer/vrx_ws/src;
+          mv vrx /home/developer/vrx_ws/src;
+          chown -R developer:developer /home/developer;
+
+      - name: Build and run tests
+        shell: bash
+        run: |
+          cd /home/developer/vrx_ws;
+          su -s /bin/bash -c "source /opt/ros/humble/setup.bash && colcon build --merge-install --executor sequential" developer;
+          su -s /bin/bash -c "source /opt/ros/humble/setup.bash && colcon test --merge-install --executor sequential --packages-skip-regex ros_gz* --return-code-on-test-failure --event-handlers console_direct+" developer;

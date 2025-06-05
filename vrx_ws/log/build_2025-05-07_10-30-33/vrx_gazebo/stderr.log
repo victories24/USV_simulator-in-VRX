@@ -1,0 +1,4 @@
+failed to create symbolic link '/home/cj/vrx_ws/build/vrx_gazebo/ament_cmake_python/vrx_gazebo/vrx_gazebo' because existing path cannot be removed: Is a directory
+gmake[2]: *** [CMakeFiles/ament_cmake_python_symlink_vrx_gazebo.dir/build.make:70: CMakeFiles/ament_cmake_python_symlink_vrx_gazebo] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:138: CMakeFiles/ament_cmake_python_symlink_vrx_gazebo.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

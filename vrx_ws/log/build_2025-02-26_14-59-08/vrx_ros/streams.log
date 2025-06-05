@@ -1,0 +1,93 @@
+[0.007s] Invoking command in '/home/cj/vrx_ws/build/vrx_ros': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/cj/ros2_ws/install/launch_testing_examples:/home/cj/ros2_ws/install/examples_rclpy_pointcloud_publisher:/home/cj/ros2_ws/install/examples_rclpy_minimal_subscriber:/home/cj/ros2_ws/install/examples_rclpy_minimal_service:/home/cj/ros2_ws/install/examples_rclpy_minimal_publisher:/home/cj/ros2_ws/install/examples_rclpy_minimal_client:/home/cj/ros2_ws/install/examples_rclpy_minimal_action_server:/home/cj/ros2_ws/install/examples_rclpy_minimal_action_client:/home/cj/ros2_ws/install/examples_rclpy_guard_conditions:/home/cj/ros2_ws/install/examples_rclpy_executors:/opt/ros/humble /usr/bin/cmake /home/cj/vrx_ws/src/vrx/vrx_ros -DCMAKE_INSTALL_PREFIX=/home/cj/vrx_ws/install
+[0.061s] -- The C compiler identification is GNU 11.4.0
+[0.104s] -- The CXX compiler identification is GNU 11.4.0
+[0.109s] -- Detecting C compiler ABI info
+[0.183s] -- Detecting C compiler ABI info - done
+[0.192s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.193s] -- Detecting C compile features
+[0.193s] -- Detecting C compile features - done
+[0.196s] -- Detecting CXX compiler ABI info
+[0.278s] -- Detecting CXX compiler ABI info - done
+[0.283s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.283s] -- Detecting CXX compile features
+[0.284s] -- Detecting CXX compile features - done
+[0.287s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.416s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.498s] -- Found geometry_msgs: 4.2.4 (/opt/ros/humble/share/geometry_msgs/cmake)
+[0.529s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.534s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.540s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.550s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.563s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.590s] -- Looking for gz-msgs9 -- found version 9.5.1
+[0.598s] -- Searching for dependencies of gz-msgs9
+[0.746s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so (found version "3.12.4") 
+[0.748s] -- Looking for gz-math7 -- found version 7.5.1
+[0.748s] -- Searching for dependencies of gz-math7
+[0.750s] -- Looking for gz-utils2 -- found version 2.2.1
+[0.751s] -- Searching for dependencies of gz-utils2
+[0.755s] -- Checking for module 'tinyxml2'
+[0.766s] --   Found tinyxml2, version 9.0.0
+[0.796s] -- Looking for gz-transport12 -- found version 12.2.2
+[0.796s] -- Searching for dependencies of gz-transport12
+[0.818s] -- Config-file not installed for ZeroMQ -- checking for pkg-config
+[0.822s] -- Checking for module 'libzmq >= 4'
+[0.836s] --   Found libzmq , version 4.3.4
+[0.867s] -- Found ZeroMQ: TRUE (Required is at least version "4") 
+[0.872s] -- Checking for module 'uuid'
+[0.886s] --   Found uuid, version 2.37.2
+[0.914s] -- Found UUID: TRUE  
+[0.914s] -- Looking for gz-utils2 -- found version 2.2.1
+[0.915s] -- Searching for dependencies of gz-utils2
+[0.915s] -- Searching for <gz-utils2> component [cli]
+[0.917s] -- Looking for gz-utils2-cli -- found version 2.2.1
+[0.917s] -- Searching for dependencies of gz-utils2-cli
+[0.918s] -- Looking for gz-msgs9 -- found version 9.5.1
+[0.920s] -- Found rclcpp: 16.0.11 (/opt/ros/humble/share/rclcpp/cmake)
+[0.955s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.957s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[1.046s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[1.076s] -- Found FastRTPS: /opt/ros/humble/include  
+[1.107s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.115s] -- Found Threads: TRUE  
+[1.142s] -- Found ros_gz_interfaces: 0.244.11 (/opt/ros/humble/share/ros_gz_interfaces/cmake)
+[1.156s] -- Found sensor_msgs: 4.2.4 (/opt/ros/humble/share/sensor_msgs/cmake)
+[1.171s] -- Found tf2: 0.25.12 (/opt/ros/humble/share/tf2/cmake)
+[1.179s] -- Found tf2_msgs: 0.25.12 (/opt/ros/humble/share/tf2_msgs/cmake)
+[1.210s] -- Found tf2_ros: 0.25.12 (/opt/ros/humble/share/tf2_ros/cmake)
+[1.301s] -- Configuring done
+[1.310s] -- Generating done
+[1.314s] -- Build files have been written to: /home/cj/vrx_ws/build/vrx_ros
+[1.322s] Invoked command in '/home/cj/vrx_ws/build/vrx_ros' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/cj/ros2_ws/install/launch_testing_examples:/home/cj/ros2_ws/install/examples_rclpy_pointcloud_publisher:/home/cj/ros2_ws/install/examples_rclpy_minimal_subscriber:/home/cj/ros2_ws/install/examples_rclpy_minimal_service:/home/cj/ros2_ws/install/examples_rclpy_minimal_publisher:/home/cj/ros2_ws/install/examples_rclpy_minimal_client:/home/cj/ros2_ws/install/examples_rclpy_minimal_action_server:/home/cj/ros2_ws/install/examples_rclpy_minimal_action_client:/home/cj/ros2_ws/install/examples_rclpy_guard_conditions:/home/cj/ros2_ws/install/examples_rclpy_executors:/opt/ros/humble /usr/bin/cmake /home/cj/vrx_ws/src/vrx/vrx_ros -DCMAKE_INSTALL_PREFIX=/home/cj/vrx_ws/install
+[1.323s] Invoking command in '/home/cj/vrx_ws/build/vrx_ros': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/cj/ros2_ws/install/launch_testing_examples:/home/cj/ros2_ws/install/examples_rclpy_pointcloud_publisher:/home/cj/ros2_ws/install/examples_rclpy_minimal_subscriber:/home/cj/ros2_ws/install/examples_rclpy_minimal_service:/home/cj/ros2_ws/install/examples_rclpy_minimal_publisher:/home/cj/ros2_ws/install/examples_rclpy_minimal_client:/home/cj/ros2_ws/install/examples_rclpy_minimal_action_server:/home/cj/ros2_ws/install/examples_rclpy_minimal_action_client:/home/cj/ros2_ws/install/examples_rclpy_guard_conditions:/home/cj/ros2_ws/install/examples_rclpy_executors:/opt/ros/humble /usr/bin/cmake --build /home/cj/vrx_ws/build/vrx_ros -- -j16 -l16
+[1.364s] [ 25%] [32mBuilding CXX object CMakeFiles/pose_tf_broadcaster.dir/src/pose_tf_broadcaster.cc.o[0m
+[1.364s] [ 50%] [32mBuilding CXX object CMakeFiles/optical_frame_publisher.dir/src/optical_frame_publisher.cc.o[0m
+[6.563s] [ 75%] [32m[1mLinking CXX executable pose_tf_broadcaster[0m
+[6.845s] [ 75%] Built target pose_tf_broadcaster
+[8.620s] [100%] [32m[1mLinking CXX executable optical_frame_publisher[0m
+[9.038s] [100%] Built target optical_frame_publisher
+[9.046s] Invoked command in '/home/cj/vrx_ws/build/vrx_ros' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/cj/ros2_ws/install/launch_testing_examples:/home/cj/ros2_ws/install/examples_rclpy_pointcloud_publisher:/home/cj/ros2_ws/install/examples_rclpy_minimal_subscriber:/home/cj/ros2_ws/install/examples_rclpy_minimal_service:/home/cj/ros2_ws/install/examples_rclpy_minimal_publisher:/home/cj/ros2_ws/install/examples_rclpy_minimal_client:/home/cj/ros2_ws/install/examples_rclpy_minimal_action_server:/home/cj/ros2_ws/install/examples_rclpy_minimal_action_client:/home/cj/ros2_ws/install/examples_rclpy_guard_conditions:/home/cj/ros2_ws/install/examples_rclpy_executors:/opt/ros/humble /usr/bin/cmake --build /home/cj/vrx_ws/build/vrx_ros -- -j16 -l16
+[9.048s] Invoking command in '/home/cj/vrx_ws/build/vrx_ros': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/cj/ros2_ws/install/launch_testing_examples:/home/cj/ros2_ws/install/examples_rclpy_pointcloud_publisher:/home/cj/ros2_ws/install/examples_rclpy_minimal_subscriber:/home/cj/ros2_ws/install/examples_rclpy_minimal_service:/home/cj/ros2_ws/install/examples_rclpy_minimal_publisher:/home/cj/ros2_ws/install/examples_rclpy_minimal_client:/home/cj/ros2_ws/install/examples_rclpy_minimal_action_server:/home/cj/ros2_ws/install/examples_rclpy_minimal_action_client:/home/cj/ros2_ws/install/examples_rclpy_guard_conditions:/home/cj/ros2_ws/install/examples_rclpy_executors:/opt/ros/humble /usr/bin/cmake --install /home/cj/vrx_ws/build/vrx_ros
+[9.054s] -- Install configuration: ""
+[9.054s] -- Installing: /home/cj/vrx_ws/install/lib/vrx_ros/optical_frame_publisher
+[9.057s] -- Set runtime path of "/home/cj/vrx_ws/install/lib/vrx_ros/optical_frame_publisher" to ""
+[9.057s] -- Installing: /home/cj/vrx_ws/install/lib/vrx_ros/pose_tf_broadcaster
+[9.059s] -- Set runtime path of "/home/cj/vrx_ws/install/lib/vrx_ros/pose_tf_broadcaster" to ""
+[9.059s] -- Installing: /home/cj/vrx_ws/install/share/vrx_ros/launch
+[9.059s] -- Installing: /home/cj/vrx_ws/install/share/vrx_ros/launch/monitor_sim.py
+[9.059s] -- Installing: /home/cj/vrx_ws/install/share/ament_index/resource_index/package_run_dependencies/vrx_ros
+[9.060s] -- Installing: /home/cj/vrx_ws/install/share/ament_index/resource_index/parent_prefix_path/vrx_ros
+[9.060s] -- Installing: /home/cj/vrx_ws/install/share/vrx_ros/environment/ament_prefix_path.sh
+[9.060s] -- Installing: /home/cj/vrx_ws/install/share/vrx_ros/environment/ament_prefix_path.dsv
+[9.060s] -- Installing: /home/cj/vrx_ws/install/share/vrx_ros/environment/path.sh
+[9.060s] -- Installing: /home/cj/vrx_ws/install/share/vrx_ros/environment/path.dsv
+[9.060s] -- Installing: /home/cj/vrx_ws/install/share/vrx_ros/local_setup.bash
+[9.060s] -- Installing: /home/cj/vrx_ws/install/share/vrx_ros/local_setup.sh
+[9.060s] -- Installing: /home/cj/vrx_ws/install/share/vrx_ros/local_setup.zsh
+[9.060s] -- Installing: /home/cj/vrx_ws/install/share/vrx_ros/local_setup.dsv
+[9.060s] -- Installing: /home/cj/vrx_ws/install/share/vrx_ros/package.dsv
+[9.060s] -- Installing: /home/cj/vrx_ws/install/share/ament_index/resource_index/packages/vrx_ros
+[9.060s] -- Installing: /home/cj/vrx_ws/install/share/vrx_ros/cmake/vrx_rosConfig.cmake
+[9.060s] -- Installing: /home/cj/vrx_ws/install/share/vrx_ros/cmake/vrx_rosConfig-version.cmake
+[9.060s] -- Installing: /home/cj/vrx_ws/install/share/vrx_ros/package.xml
+[9.062s] Invoked command in '/home/cj/vrx_ws/build/vrx_ros' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/cj/ros2_ws/install/launch_testing_examples:/home/cj/ros2_ws/install/examples_rclpy_pointcloud_publisher:/home/cj/ros2_ws/install/examples_rclpy_minimal_subscriber:/home/cj/ros2_ws/install/examples_rclpy_minimal_service:/home/cj/ros2_ws/install/examples_rclpy_minimal_publisher:/home/cj/ros2_ws/install/examples_rclpy_minimal_client:/home/cj/ros2_ws/install/examples_rclpy_minimal_action_server:/home/cj/ros2_ws/install/examples_rclpy_minimal_action_client:/home/cj/ros2_ws/install/examples_rclpy_guard_conditions:/home/cj/ros2_ws/install/examples_rclpy_executors:/opt/ros/humble /usr/bin/cmake --install /home/cj/vrx_ws/build/vrx_ros

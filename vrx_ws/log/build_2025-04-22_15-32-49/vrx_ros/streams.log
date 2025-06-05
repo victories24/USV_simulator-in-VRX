@@ -1,0 +1,26 @@
+[0.012s] Invoking command in '/home/cj/vrx_ws/build/vrx_ros': CMAKE_PREFIX_PATH=/home/cj/ros2_ws/install/launch_testing_examples:/home/cj/ros2_ws/install/examples_rclpy_pointcloud_publisher:/home/cj/ros2_ws/install/examples_rclpy_minimal_subscriber:/home/cj/ros2_ws/install/examples_rclpy_minimal_service:/home/cj/ros2_ws/install/examples_rclpy_minimal_publisher:/home/cj/ros2_ws/install/examples_rclpy_minimal_client:/home/cj/ros2_ws/install/examples_rclpy_minimal_action_server:/home/cj/ros2_ws/install/examples_rclpy_minimal_action_client:/home/cj/ros2_ws/install/examples_rclpy_guard_conditions:/home/cj/ros2_ws/install/examples_rclpy_executors:/opt/ros/humble:${CMAKE_PREFIX_PATH} /usr/bin/cmake --build /home/cj/vrx_ws/build/vrx_ros -- -j16 -l16
+[0.052s] [ 50%] Built target optical_frame_publisher
+[0.056s] [100%] Built target pose_tf_broadcaster
+[0.195s] Invoked command in '/home/cj/vrx_ws/build/vrx_ros' returned '0': CMAKE_PREFIX_PATH=/home/cj/ros2_ws/install/launch_testing_examples:/home/cj/ros2_ws/install/examples_rclpy_pointcloud_publisher:/home/cj/ros2_ws/install/examples_rclpy_minimal_subscriber:/home/cj/ros2_ws/install/examples_rclpy_minimal_service:/home/cj/ros2_ws/install/examples_rclpy_minimal_publisher:/home/cj/ros2_ws/install/examples_rclpy_minimal_client:/home/cj/ros2_ws/install/examples_rclpy_minimal_action_server:/home/cj/ros2_ws/install/examples_rclpy_minimal_action_client:/home/cj/ros2_ws/install/examples_rclpy_guard_conditions:/home/cj/ros2_ws/install/examples_rclpy_executors:/opt/ros/humble:${CMAKE_PREFIX_PATH} /usr/bin/cmake --build /home/cj/vrx_ws/build/vrx_ros -- -j16 -l16
+[0.204s] Invoking command in '/home/cj/vrx_ws/build/vrx_ros': CMAKE_PREFIX_PATH=/home/cj/ros2_ws/install/launch_testing_examples:/home/cj/ros2_ws/install/examples_rclpy_pointcloud_publisher:/home/cj/ros2_ws/install/examples_rclpy_minimal_subscriber:/home/cj/ros2_ws/install/examples_rclpy_minimal_service:/home/cj/ros2_ws/install/examples_rclpy_minimal_publisher:/home/cj/ros2_ws/install/examples_rclpy_minimal_client:/home/cj/ros2_ws/install/examples_rclpy_minimal_action_server:/home/cj/ros2_ws/install/examples_rclpy_minimal_action_client:/home/cj/ros2_ws/install/examples_rclpy_guard_conditions:/home/cj/ros2_ws/install/examples_rclpy_executors:/opt/ros/humble:${CMAKE_PREFIX_PATH} /usr/bin/cmake --install /home/cj/vrx_ws/build/vrx_ros
+[0.210s] -- Install configuration: ""
+[0.210s] -- Up-to-date: /home/cj/vrx_ws/install/lib/vrx_ros/optical_frame_publisher
+[0.210s] -- Up-to-date: /home/cj/vrx_ws/install/lib/vrx_ros/pose_tf_broadcaster
+[0.210s] -- Up-to-date: /home/cj/vrx_ws/install/share/vrx_ros/launch
+[0.210s] -- Up-to-date: /home/cj/vrx_ws/install/share/vrx_ros/launch/monitor_sim.py
+[0.210s] -- Up-to-date: /home/cj/vrx_ws/install/share/ament_index/resource_index/package_run_dependencies/vrx_ros
+[0.210s] -- Up-to-date: /home/cj/vrx_ws/install/share/ament_index/resource_index/parent_prefix_path/vrx_ros
+[0.210s] -- Up-to-date: /home/cj/vrx_ws/install/share/vrx_ros/environment/ament_prefix_path.sh
+[0.210s] -- Up-to-date: /home/cj/vrx_ws/install/share/vrx_ros/environment/ament_prefix_path.dsv
+[0.211s] -- Up-to-date: /home/cj/vrx_ws/install/share/vrx_ros/environment/path.sh
+[0.211s] -- Up-to-date: /home/cj/vrx_ws/install/share/vrx_ros/environment/path.dsv
+[0.211s] -- Up-to-date: /home/cj/vrx_ws/install/share/vrx_ros/local_setup.bash
+[0.211s] -- Up-to-date: /home/cj/vrx_ws/install/share/vrx_ros/local_setup.sh
+[0.211s] -- Up-to-date: /home/cj/vrx_ws/install/share/vrx_ros/local_setup.zsh
+[0.211s] -- Up-to-date: /home/cj/vrx_ws/install/share/vrx_ros/local_setup.dsv
+[0.211s] -- Installing: /home/cj/vrx_ws/install/share/vrx_ros/package.dsv
+[0.211s] -- Up-to-date: /home/cj/vrx_ws/install/share/ament_index/resource_index/packages/vrx_ros
+[0.211s] -- Up-to-date: /home/cj/vrx_ws/install/share/vrx_ros/cmake/vrx_rosConfig.cmake
+[0.211s] -- Up-to-date: /home/cj/vrx_ws/install/share/vrx_ros/cmake/vrx_rosConfig-version.cmake
+[0.211s] -- Up-to-date: /home/cj/vrx_ws/install/share/vrx_ros/package.xml
+[0.212s] Invoked command in '/home/cj/vrx_ws/build/vrx_ros' returned '0': CMAKE_PREFIX_PATH=/home/cj/ros2_ws/install/launch_testing_examples:/home/cj/ros2_ws/install/examples_rclpy_pointcloud_publisher:/home/cj/ros2_ws/install/examples_rclpy_minimal_subscriber:/home/cj/ros2_ws/install/examples_rclpy_minimal_service:/home/cj/ros2_ws/install/examples_rclpy_minimal_publisher:/home/cj/ros2_ws/install/examples_rclpy_minimal_client:/home/cj/ros2_ws/install/examples_rclpy_minimal_action_server:/home/cj/ros2_ws/install/examples_rclpy_minimal_action_client:/home/cj/ros2_ws/install/examples_rclpy_guard_conditions:/home/cj/ros2_ws/install/examples_rclpy_executors:/opt/ros/humble:${CMAKE_PREFIX_PATH} /usr/bin/cmake --install /home/cj/vrx_ws/build/vrx_ros

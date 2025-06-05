@@ -1,0 +1,35 @@
+running egg_info
+creating ../../build/mywamv_control/mywamv_control.egg-info
+writing ../../build/mywamv_control/mywamv_control.egg-info/PKG-INFO
+writing dependency_links to ../../build/mywamv_control/mywamv_control.egg-info/dependency_links.txt
+writing entry points to ../../build/mywamv_control/mywamv_control.egg-info/entry_points.txt
+writing requirements to ../../build/mywamv_control/mywamv_control.egg-info/requires.txt
+writing top-level names to ../../build/mywamv_control/mywamv_control.egg-info/top_level.txt
+writing manifest file '../../build/mywamv_control/mywamv_control.egg-info/SOURCES.txt'
+reading manifest file '../../build/mywamv_control/mywamv_control.egg-info/SOURCES.txt'
+writing manifest file '../../build/mywamv_control/mywamv_control.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/cj/vrx_ws/build/mywamv_control/build
+creating /home/cj/vrx_ws/build/mywamv_control/build/lib
+creating /home/cj/vrx_ws/build/mywamv_control/build/lib/mywamv_control
+copying mywamv_control/__init__.py -> /home/cj/vrx_ws/build/mywamv_control/build/lib/mywamv_control
+running build_scripts
+creating /home/cj/vrx_ws/build/mywamv_control/build/scripts-3.10
+copying and adjusting scripts/mywamv_inverse_kinematics.py -> /home/cj/vrx_ws/build/mywamv_control/build/scripts-3.10
+changing mode of /home/cj/vrx_ws/build/mywamv_control/build/scripts-3.10/mywamv_inverse_kinematics.py from 664 to 775
+running install
+running install_lib
+creating /home/cj/vrx_ws/install/lib/python3.10/site-packages/mywamv_control
+copying /home/cj/vrx_ws/build/mywamv_control/build/lib/mywamv_control/__init__.py -> /home/cj/vrx_ws/install/lib/python3.10/site-packages/mywamv_control
+byte-compiling /home/cj/vrx_ws/install/lib/python3.10/site-packages/mywamv_control/__init__.py to __init__.cpython-310.pyc
+running install_data
+copying resource/mywamv_control -> /home/cj/vrx_ws/install/share/ament_index/resource_index/packages
+copying package.xml -> /home/cj/vrx_ws/install/share/mywamv_control
+running install_egg_info
+Copying ../../build/mywamv_control/mywamv_control.egg-info to /home/cj/vrx_ws/install/lib/python3.10/site-packages/mywamv_control-0.0.0-py3.10.egg-info
+running install_scripts
+creating /home/cj/vrx_ws/install/lib/mywamv_control
+copying /home/cj/vrx_ws/build/mywamv_control/build/scripts-3.10/mywamv_inverse_kinematics.py -> /home/cj/vrx_ws/install/lib/mywamv_control
+changing mode of /home/cj/vrx_ws/install/lib/mywamv_control/mywamv_inverse_kinematics.py to 775
+writing list of installed files to '/home/cj/vrx_ws/build/mywamv_control/install.log'

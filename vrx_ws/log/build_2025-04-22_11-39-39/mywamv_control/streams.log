@@ -1,0 +1,37 @@
+[0.473s] Invoking command in '/home/cj/vrx_ws/src/mywamv_control': PYTHONPATH=/home/cj/vrx_ws/build/mywamv_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/cj/vrx_ws/install/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/mywamv_control build --build-base /home/cj/vrx_ws/build/mywamv_control/build install --record /home/cj/vrx_ws/build/mywamv_control/install.log --single-version-externally-managed install_data
+[0.649s] running egg_info
+[0.649s] creating ../../build/mywamv_control/mywamv_control.egg-info
+[0.649s] writing ../../build/mywamv_control/mywamv_control.egg-info/PKG-INFO
+[0.649s] writing dependency_links to ../../build/mywamv_control/mywamv_control.egg-info/dependency_links.txt
+[0.649s] writing entry points to ../../build/mywamv_control/mywamv_control.egg-info/entry_points.txt
+[0.649s] writing requirements to ../../build/mywamv_control/mywamv_control.egg-info/requires.txt
+[0.649s] writing top-level names to ../../build/mywamv_control/mywamv_control.egg-info/top_level.txt
+[0.650s] writing manifest file '../../build/mywamv_control/mywamv_control.egg-info/SOURCES.txt'
+[0.651s] reading manifest file '../../build/mywamv_control/mywamv_control.egg-info/SOURCES.txt'
+[0.651s] writing manifest file '../../build/mywamv_control/mywamv_control.egg-info/SOURCES.txt'
+[0.651s] running build
+[0.651s] running build_py
+[0.651s] creating /home/cj/vrx_ws/build/mywamv_control/build
+[0.651s] creating /home/cj/vrx_ws/build/mywamv_control/build/lib
+[0.651s] creating /home/cj/vrx_ws/build/mywamv_control/build/lib/mywamv_control
+[0.652s] copying mywamv_control/__init__.py -> /home/cj/vrx_ws/build/mywamv_control/build/lib/mywamv_control
+[0.652s] running build_scripts
+[0.652s] creating /home/cj/vrx_ws/build/mywamv_control/build/scripts-3.10
+[0.652s] copying and adjusting scripts/mywamv_inverse_kinematics.py -> /home/cj/vrx_ws/build/mywamv_control/build/scripts-3.10
+[0.652s] changing mode of /home/cj/vrx_ws/build/mywamv_control/build/scripts-3.10/mywamv_inverse_kinematics.py from 664 to 775
+[0.652s] running install
+[0.652s] running install_lib
+[0.652s] creating /home/cj/vrx_ws/install/lib/python3.10/site-packages/mywamv_control
+[0.652s] copying /home/cj/vrx_ws/build/mywamv_control/build/lib/mywamv_control/__init__.py -> /home/cj/vrx_ws/install/lib/python3.10/site-packages/mywamv_control
+[0.653s] byte-compiling /home/cj/vrx_ws/install/lib/python3.10/site-packages/mywamv_control/__init__.py to __init__.cpython-310.pyc
+[0.653s] running install_data
+[0.653s] copying resource/mywamv_control -> /home/cj/vrx_ws/install/share/ament_index/resource_index/packages
+[0.653s] copying package.xml -> /home/cj/vrx_ws/install/share/mywamv_control
+[0.653s] running install_egg_info
+[0.654s] Copying ../../build/mywamv_control/mywamv_control.egg-info to /home/cj/vrx_ws/install/lib/python3.10/site-packages/mywamv_control-0.0.0-py3.10.egg-info
+[0.654s] running install_scripts
+[0.667s] creating /home/cj/vrx_ws/install/lib/mywamv_control
+[0.667s] copying /home/cj/vrx_ws/build/mywamv_control/build/scripts-3.10/mywamv_inverse_kinematics.py -> /home/cj/vrx_ws/install/lib/mywamv_control
+[0.667s] changing mode of /home/cj/vrx_ws/install/lib/mywamv_control/mywamv_inverse_kinematics.py to 775
+[0.668s] writing list of installed files to '/home/cj/vrx_ws/build/mywamv_control/install.log'
+[0.683s] Invoked command in '/home/cj/vrx_ws/src/mywamv_control' returned '0': PYTHONPATH=/home/cj/vrx_ws/build/mywamv_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/cj/vrx_ws/install/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/mywamv_control build --build-base /home/cj/vrx_ws/build/mywamv_control/build install --record /home/cj/vrx_ws/build/mywamv_control/install.log --single-version-externally-managed install_data

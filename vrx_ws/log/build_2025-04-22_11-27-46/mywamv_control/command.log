@@ -1,0 +1,2 @@
+Invoking command in '/home/cj/vrx_ws/build/mywamv_control': /usr/bin/cmake /home/cj/vrx_ws/src/mywamv_control -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/home/cj/vrx_ws/install
+Invoked command in '/home/cj/vrx_ws/build/mywamv_control' returned '1': /usr/bin/cmake /home/cj/vrx_ws/src/mywamv_control -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/home/cj/vrx_ws/install

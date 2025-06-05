@@ -1,0 +1,22 @@
+[ 50%] Built target pose_tf_broadcaster
+[100%] Built target optical_frame_publisher
+-- Install configuration: ""
+-- Execute custom install script
+-- Symlinking: /home/cj/vrx_ws/install/lib/vrx_ros/optical_frame_publisher
+-- Symlinking: /home/cj/vrx_ws/install/lib/vrx_ros/pose_tf_broadcaster
+-- Symlinking: /home/cj/vrx_ws/install/share/vrx_ros/launch/monitor_sim.py
+-- Symlinking: /home/cj/vrx_ws/install/share/ament_index/resource_index/package_run_dependencies/vrx_ros
+-- Symlinking: /home/cj/vrx_ws/install/share/ament_index/resource_index/parent_prefix_path/vrx_ros
+-- Symlinking: /home/cj/vrx_ws/install/share/vrx_ros/environment/ament_prefix_path.sh
+-- Symlinking: /home/cj/vrx_ws/install/share/vrx_ros/environment/ament_prefix_path.dsv
+-- Symlinking: /home/cj/vrx_ws/install/share/vrx_ros/environment/path.sh
+-- Symlinking: /home/cj/vrx_ws/install/share/vrx_ros/environment/path.dsv
+-- Symlinking: /home/cj/vrx_ws/install/share/vrx_ros/local_setup.bash
+-- Symlinking: /home/cj/vrx_ws/install/share/vrx_ros/local_setup.sh
+-- Symlinking: /home/cj/vrx_ws/install/share/vrx_ros/local_setup.zsh
+-- Symlinking: /home/cj/vrx_ws/install/share/vrx_ros/local_setup.dsv
+-- Symlinking: /home/cj/vrx_ws/install/share/vrx_ros/package.dsv
+-- Symlinking: /home/cj/vrx_ws/install/share/ament_index/resource_index/packages/vrx_ros
+-- Symlinking: /home/cj/vrx_ws/install/share/vrx_ros/cmake/vrx_rosConfig.cmake
+-- Symlinking: /home/cj/vrx_ws/install/share/vrx_ros/cmake/vrx_rosConfig-version.cmake
+-- Symlinking: /home/cj/vrx_ws/install/share/vrx_ros/package.xml

@@ -1,0 +1,48 @@
+[0.007s] Invoking command in '/home/cj/vrx_ws/build/wamv_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/cj/ros2_ws/install/launch_testing_examples:/home/cj/ros2_ws/install/examples_rclpy_pointcloud_publisher:/home/cj/ros2_ws/install/examples_rclpy_minimal_subscriber:/home/cj/ros2_ws/install/examples_rclpy_minimal_service:/home/cj/ros2_ws/install/examples_rclpy_minimal_publisher:/home/cj/ros2_ws/install/examples_rclpy_minimal_client:/home/cj/ros2_ws/install/examples_rclpy_minimal_action_server:/home/cj/ros2_ws/install/examples_rclpy_minimal_action_client:/home/cj/ros2_ws/install/examples_rclpy_guard_conditions:/home/cj/ros2_ws/install/examples_rclpy_executors:/opt/ros/humble GZ_SIM_RESOURCE_PATH=/home/cj/vrx_ws/install/share:${GZ_SIM_RESOURCE_PATH} /usr/bin/cmake --build /home/cj/vrx_ws/build/wamv_description -- -j16 -l16
+[0.050s] [100%] Built target wamv_description__xacro_auto_generate
+[0.058s] Invoked command in '/home/cj/vrx_ws/build/wamv_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/cj/ros2_ws/install/launch_testing_examples:/home/cj/ros2_ws/install/examples_rclpy_pointcloud_publisher:/home/cj/ros2_ws/install/examples_rclpy_minimal_subscriber:/home/cj/ros2_ws/install/examples_rclpy_minimal_service:/home/cj/ros2_ws/install/examples_rclpy_minimal_publisher:/home/cj/ros2_ws/install/examples_rclpy_minimal_client:/home/cj/ros2_ws/install/examples_rclpy_minimal_action_server:/home/cj/ros2_ws/install/examples_rclpy_minimal_action_client:/home/cj/ros2_ws/install/examples_rclpy_guard_conditions:/home/cj/ros2_ws/install/examples_rclpy_executors:/opt/ros/humble GZ_SIM_RESOURCE_PATH=/home/cj/vrx_ws/install/share:${GZ_SIM_RESOURCE_PATH} /usr/bin/cmake --build /home/cj/vrx_ws/build/wamv_description -- -j16 -l16
+[0.059s] Invoking command in '/home/cj/vrx_ws/build/wamv_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/cj/ros2_ws/install/launch_testing_examples:/home/cj/ros2_ws/install/examples_rclpy_pointcloud_publisher:/home/cj/ros2_ws/install/examples_rclpy_minimal_subscriber:/home/cj/ros2_ws/install/examples_rclpy_minimal_service:/home/cj/ros2_ws/install/examples_rclpy_minimal_publisher:/home/cj/ros2_ws/install/examples_rclpy_minimal_client:/home/cj/ros2_ws/install/examples_rclpy_minimal_action_server:/home/cj/ros2_ws/install/examples_rclpy_minimal_action_client:/home/cj/ros2_ws/install/examples_rclpy_guard_conditions:/home/cj/ros2_ws/install/examples_rclpy_executors:/opt/ros/humble GZ_SIM_RESOURCE_PATH=/home/cj/vrx_ws/install/share:${GZ_SIM_RESOURCE_PATH} /usr/bin/cmake --install /home/cj/vrx_ws/build/wamv_description
+[0.067s] -- Install configuration: ""
+[0.067s] -- Up-to-date: /home/cj/vrx_ws/install/share/wamv_description/environment/resource_paths.dsv
+[0.067s] -- Up-to-date: /home/cj/vrx_ws/install/share/wamv_description/environment/resource_paths.sh
+[0.067s] -- Up-to-date: /home/cj/vrx_ws/install/share/wamv_description/urdf/wamv_base.urdf
+[0.067s] -- Up-to-date: /home/cj/vrx_ws/install/share/wamv_description/models
+[0.067s] -- Up-to-date: /home/cj/vrx_ws/install/share/wamv_description/models/engine
+[0.067s] -- Up-to-date: /home/cj/vrx_ws/install/share/wamv_description/models/engine/mesh
+[0.067s] -- Up-to-date: /home/cj/vrx_ws/install/share/wamv_description/models/engine/mesh/engine.dae
+[0.067s] -- Up-to-date: /home/cj/vrx_ws/install/share/wamv_description/models/engine/model.config
+[0.067s] -- Up-to-date: /home/cj/vrx_ws/install/share/wamv_description/models/WAM-V-Base
+[0.067s] -- Up-to-date: /home/cj/vrx_ws/install/share/wamv_description/models/WAM-V-Base/mesh
+[0.067s] -- Up-to-date: /home/cj/vrx_ws/install/share/wamv_description/models/WAM-V-Base/mesh/WAM-V-Base.dae
+[0.067s] -- Up-to-date: /home/cj/vrx_ws/install/share/wamv_description/models/WAM-V-Base/mesh/WamV.png
+[0.067s] -- Up-to-date: /home/cj/vrx_ws/install/share/wamv_description/models/WAM-V-Base/mesh/WAM-V_Metalness.png
+[0.067s] -- Up-to-date: /home/cj/vrx_ws/install/share/wamv_description/models/WAM-V-Base/mesh/WAM-V_Normal.png
+[0.067s] -- Up-to-date: /home/cj/vrx_ws/install/share/wamv_description/models/WAM-V-Base/mesh/WAM-V_Roughness.png
+[0.067s] -- Up-to-date: /home/cj/vrx_ws/install/share/wamv_description/models/WAM-V-Base/mesh/WAM-V_Albedo.png
+[0.067s] -- Up-to-date: /home/cj/vrx_ws/install/share/wamv_description/models/WAM-V-Base/model.config
+[0.067s] -- Up-to-date: /home/cj/vrx_ws/install/share/wamv_description/models/propeller
+[0.067s] -- Up-to-date: /home/cj/vrx_ws/install/share/wamv_description/models/propeller/mesh
+[0.067s] -- Up-to-date: /home/cj/vrx_ws/install/share/wamv_description/models/propeller/mesh/propeller.dae
+[0.067s] -- Up-to-date: /home/cj/vrx_ws/install/share/wamv_description/models/propeller/model.config
+[0.068s] -- Up-to-date: /home/cj/vrx_ws/install/share/wamv_description/urdf
+[0.068s] -- Up-to-date: /home/cj/vrx_ws/install/share/wamv_description/urdf/cpu_cases.xacro
+[0.068s] -- Up-to-date: /home/cj/vrx_ws/install/share/wamv_description/urdf/battery.xacro
+[0.068s] -- Up-to-date: /home/cj/vrx_ws/install/share/wamv_description/urdf/thrusters
+[0.068s] -- Up-to-date: /home/cj/vrx_ws/install/share/wamv_description/urdf/thrusters/engine.xacro
+[0.068s] -- Up-to-date: /home/cj/vrx_ws/install/share/wamv_description/urdf/wamv_base.urdf.xacro
+[0.068s] -- Up-to-date: /home/cj/vrx_ws/install/share/ament_index/resource_index/package_run_dependencies/wamv_description
+[0.068s] -- Up-to-date: /home/cj/vrx_ws/install/share/ament_index/resource_index/parent_prefix_path/wamv_description
+[0.068s] -- Up-to-date: /home/cj/vrx_ws/install/share/wamv_description/environment/ament_prefix_path.sh
+[0.068s] -- Up-to-date: /home/cj/vrx_ws/install/share/wamv_description/environment/ament_prefix_path.dsv
+[0.068s] -- Up-to-date: /home/cj/vrx_ws/install/share/wamv_description/environment/path.sh
+[0.068s] -- Up-to-date: /home/cj/vrx_ws/install/share/wamv_description/environment/path.dsv
+[0.068s] -- Up-to-date: /home/cj/vrx_ws/install/share/wamv_description/local_setup.bash
+[0.068s] -- Up-to-date: /home/cj/vrx_ws/install/share/wamv_description/local_setup.sh
+[0.068s] -- Up-to-date: /home/cj/vrx_ws/install/share/wamv_description/local_setup.zsh
+[0.068s] -- Up-to-date: /home/cj/vrx_ws/install/share/wamv_description/local_setup.dsv
+[0.068s] -- Installing: /home/cj/vrx_ws/install/share/wamv_description/package.dsv
+[0.068s] -- Up-to-date: /home/cj/vrx_ws/install/share/ament_index/resource_index/packages/wamv_description
+[0.068s] -- Up-to-date: /home/cj/vrx_ws/install/share/wamv_description/cmake/wamv_descriptionConfig.cmake
+[0.068s] -- Up-to-date: /home/cj/vrx_ws/install/share/wamv_description/cmake/wamv_descriptionConfig-version.cmake
+[0.068s] -- Up-to-date: /home/cj/vrx_ws/install/share/wamv_description/package.xml
+[0.069s] Invoked command in '/home/cj/vrx_ws/build/wamv_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/cj/ros2_ws/install/launch_testing_examples:/home/cj/ros2_ws/install/examples_rclpy_pointcloud_publisher:/home/cj/ros2_ws/install/examples_rclpy_minimal_subscriber:/home/cj/ros2_ws/install/examples_rclpy_minimal_service:/home/cj/ros2_ws/install/examples_rclpy_minimal_publisher:/home/cj/ros2_ws/install/examples_rclpy_minimal_client:/home/cj/ros2_ws/install/examples_rclpy_minimal_action_server:/home/cj/ros2_ws/install/examples_rclpy_minimal_action_client:/home/cj/ros2_ws/install/examples_rclpy_guard_conditions:/home/cj/ros2_ws/install/examples_rclpy_executors:/opt/ros/humble GZ_SIM_RESOURCE_PATH=/home/cj/vrx_ws/install/share:${GZ_SIM_RESOURCE_PATH} /usr/bin/cmake --install /home/cj/vrx_ws/build/wamv_description
