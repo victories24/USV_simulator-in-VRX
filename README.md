@@ -79,7 +79,7 @@ ros2 launch vrx_gz competition.launch.py world:=sydney_regatta
 
 ![VRX 仿真环境](picture/sydney_regatta.png)
 
-
+## WAM-V无人船的操纵和修改
 
 
 
