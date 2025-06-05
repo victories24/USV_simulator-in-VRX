@@ -5,11 +5,11 @@
 VRX(Virtual RobotX)是一个无人船的仿真环境，与RobotX比赛合作提供了水面无人船的仿真环境和任务，以及WAM-V平台。该项目模拟了真实的海洋场景，包括基于Fossen的波浪、洋流和风场模型；也搭建了全面的无人船平台，并提供了Lidar、摄像头、GPS和IMU等组件。
 
 *下文将从安装、基础操作和深度解析三个方面对vrx进行解析。*
-官方教程可参考[VRX_tutorial](https://github.com/osrf/vrx/wiki/tutorials)。
+官方教程可参考[VRX Tutorial](https://github.com/osrf/vrx/wiki/tutorials)。
 
 ### 安装
 
-官方教程[VRX_getting_started](https://github.com/osrf/vrx/wiki/getting_started_tutorial)。
+官方教程[VRX Getting Started](https://github.com/osrf/vrx/wiki/getting_started_tutorial)。
 
 本文的操作环境如下。新安装建议采用最新Release推荐版本*Gazebo Harmonic* 和 *ROS 2 Jazzy*。
 ```
