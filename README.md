@@ -11,7 +11,7 @@ VRX(Virtual RobotX)是一个无人船的仿真环境，与RobotX比赛合作提�
 
 官方教程[https://github.com/osrf/vrx/wiki/getting_started_tutorial](URL)。
 
-本文的操作环境如下。新安装建议采用最新Release推荐版本*Gazebo Harmonic*和*ROS 2 Jazzy*。
+本文的操作环境如下。新安装建议采用最新Release推荐版本*Gazebo Harmonic* 和 *ROS 2 Jazzy*。
 ```
 ubuntu 22.04.5
 ROS2 Humble
