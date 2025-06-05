@@ -77,6 +77,8 @@ source ~/vrx_ws/install/setup.bash
 ros2 launch vrx_gz competition.launch.py world:=sydney_regatta
 ```
 
+![VRX 仿真环境]()
+
 
 
 
