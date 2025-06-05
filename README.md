@@ -63,7 +63,7 @@ colcon build --merge-install
 . install/setup.bash
 ```
 
-（可选）为避免每次启动都要加载，可以在 ~/.bashrc 文件(隐藏文件)中添加：
+（可选）为避免每次启动都要加载，可以在 `~/.bashrc` 文件(隐藏文件)中添加：
 
 ```bash
 source ~/vrx_ws/install/setup.bash
