@@ -19,6 +19,12 @@ gazebo garden v7.9.0
 vrx v2.4.1
 ```
 
+1.安装基础环境
+
+按照官方文档安装*ROS 2 Jazzy* 和 *Gazebo Harmonic*:
+
+- [https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html](URL)
+- [https://gazebosim.org/docs/harmonic/install_ubuntu/](URL)
 
 ## station_keeping
 ## way_finding
