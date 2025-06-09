@@ -270,6 +270,36 @@ ros2 launch vrx_gz competition.launch.py world:=sydney_regatta
 
 2.启动自定义的世界文件
 
+除了在原世界文件中直接修改外，也可以自己创建新的世界文件。以 `sydney_regatta.sdf` 为基础，通过以下方式创造一个仅包含水体、天空和海岸的基本环境。复制地址改为vrx实际安装地址。
+
+```bash
+$ mkdir example_vrx_package
+$ cd example_vrx_package/
+$ cp <YOUR_VRX_INSTALLATION>/src/vrx/vrx_gz/worlds/sydney_regatta.sdf sydney_regatta_custom.sdf
+```
+
+打开创建的 `sydney_regatta_custom.sdf` 文件，并添加想要的组件。比如，在 </world> 标签前插入以下代码，添加一个需避障的浮标:
+
+```bash
+<model name="navigation_buoy">
+  <pose>10 5 0 0 0 0</pose>
+  <include>
+    <uri>https://fuel.gazebosim.org/1.0/osrf/models/navigation_buoy</uri>
+  </include>
+</model>
+```
+
+接着，更新Gazebo资源路径，将刚刚创建的世界文件路径输入 `GZ_SIM_RESOURCE_PATH` ：
+
+```bash
+export GZ_SIM_RESOURCE_PATH=/home/caguero/example_vrx_package:$GZ_SIM_RESOURCE_PATH
+```
+
+最后，启动自定义的世界文件：
+
+```bash
+ros2 launch vrx_gz competition.launch.py world:=sydney_regatta_custom
+```
 
 
 
