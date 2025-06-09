@@ -1,6 +1,6 @@
 # USV_simulator-in-VRX
 
-# VRX详解  
+# VRX教程  
 
 VRX(Virtual RobotX)是一个无人船的仿真环境，与RobotX比赛合作提供了水面无人船的仿真环境和任务，以及WAM-V平台。该项目模拟了真实的海洋场景，包括基于Fossen的波浪、洋流和风场模型；也搭建了全面的无人船平台，并提供了Lidar、摄像头、GPS和IMU等组件。
 
@@ -155,16 +155,14 @@ ls /dev/input/
 
 其次，可以考虑手柄的轴配置是否正确，在配置文件 [wamv.yaml](./vrx_ws/install/share/vrx_gz/config/wamv.yaml) 中修改映衬轴（如将右摇杆对应轴改为3,4），以排除手柄轴发出与接收信号不匹配的问题。
 
-最后，可以利用工具对首并进行校准，终端输入命令打开后，点击 `properties` ，进入 `calibration` 进行校准。
+最后，可以利用GTK工具对手柄进行校准，终端输入命令打开后，点击 `properties` ，进入 `calibration` 进行校准，并检测各轴的输出。
 
 ```bash
 jstest-gtk
 ```
 
-
-
-整体控制小船的运动，可以参考 `/my_wamv/mywamv_inverse_kinematic.py` 脚本中的做法。
-[跳转到对应标题](#安装)
+4*.整体控制小船的运动，可以参考 `/my_wamv/mywamv_inverse_kinematic.py` 脚本中的做法。
+[跳转到对应标题](#逆运动学控制)
 
 
 
@@ -191,6 +189,8 @@ jstest-gtk
 
 
 
+
+## 逆运动学控制
 
 # station_keeping
 # way_finding
