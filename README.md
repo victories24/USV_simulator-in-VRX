@@ -83,7 +83,7 @@ ros2 launch vrx_gz competition.launch.py world:=sydney_regatta
 
 参照官方文档 [<u>Getting Around the VRX Environment</u>](https://github.com/osrf/vrx/wiki/getting_around_tutorial)
 
-### 1.WAM-V基础操纵
+### 一、WAM-V基础操纵
 
 在终端输入以下命令，可以打开仿真环境，并加载一个带有两个舵两个桨的无人船：
 
@@ -102,7 +102,7 @@ ros2 launch vrx_gz competition.launch.py world:=sydney_regatta
 /wamv/thrusters/right/thrust
 ```
 
-### 2.终端操作
+1.终端操作
 
 为了操纵无人船移动，需要在ROS发布对应的话题，给予两桨一定的转速，或给予两舵一定的方向
 
@@ -127,7 +127,7 @@ rqt
 
 ![rqt可视化窗口](picture/rqt.png)
 
-### 3.手柄控制
+2.手柄控制
 
 vrx也提供了手柄操控小船的脚本，保存在 `/vrx/vrx_gz/launch` 下，安装手柄相关依赖后可以launch启动对应文件：
 
@@ -161,7 +161,7 @@ ls /dev/input/
 jstest-gtk
 ```
 
-4*.整体控制小船的运动，可以参考 `/my_wamv/mywamv_inverse_kinematic.py` 脚本中的做法。
+3*.整体控制小船的运动，可以参考 `/my_wamv/mywamv_inverse_kinematic.py` 脚本中的做法。
 [跳转到对应标题](#逆运动学控制)
 
 
