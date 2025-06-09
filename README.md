@@ -179,7 +179,7 @@ ros2 launch vrx_gz competition.launch.py world:=sydney_regatta
 这实际上启动了一个名为 [sydney_regatta.sdf](./vrx_ws/install/share/vrx_gz/worlds/sydney_regatta.sdf) 的世界配置文件。
 关于 `.sdf` 文件的格式，可以参考 [SDFormat](http://sdformat.org/tutorials?tut=spec_world&cat=specification&)。
 
-我们可以直接在其中修改相应的参数，以对测试环境进行快速的修改，包括：
+我们可以直接在其中增减或修改各环境因素的组件，以对测试环境进行快速的修改，包括：
 
 - 风速
 
@@ -209,12 +209,58 @@ ros2 launch vrx_gz competition.launch.py world:=sydney_regatta
  </plugin>
 ```
 
+- 水流
+
+```bash
+<!-- The wave field -->
+    <plugin filename="libPublisherPlugin.so" name="vrx::PublisherPlugin">
+      <message type="gz.msgs.Param" topic="/vrx/wavefield/parameters"
+               every="2.0">
+        params {
+          key: "direction"
+          value {
+            type: DOUBLE
+            double_value: 0.0
+          }
+        }
+        params {
+          key: "gain"
+          value {
+            type: DOUBLE
+            double_value: 0.3
+          }
+        }
+        params {
+          key: "period"
+          value {
+            type: DOUBLE
+            double_value: 5
+          }
+        }
+        params {
+          key: "steepness"
+          value {
+            type: DOUBLE
+            double_value: 0
+          }
+        }
+      </message>
+    </plugin>
+```
+
+
+
+
+
+
+关于VRX如何对这些环境因素进行仿真，以及组件的具体细节，可以查看 [跳转](#VRX各组件的具体定义)
 
 
 ## WAM-V无人船的操纵和修改
 
 
 
+## VRX各组件的具体定义
 
 
 
