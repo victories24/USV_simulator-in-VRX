@@ -209,7 +209,9 @@ ros2 launch vrx_gz competition.launch.py world:=sydney_regatta
  </plugin>
 ```
 
-- 水流
+- 波浪场组件
+
+包含4个波浪参数， 波浪方向 (direction)、波浪增益 (gain)、波浪周期 (period)和波浪陡度 (steepness)。
 
 ```bash
 <!-- The wave field -->
