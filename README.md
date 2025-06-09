@@ -127,8 +127,16 @@ rqt
 
 ![rqt可视化窗口](picture/rqt.png)
 
+3.手柄控制
 
-[跳转到标题](#安装)
+
+
+
+
+
+
+整体控制小船的运动，可以参考 `/my_wamv/mywamv_inverse_kinematic.py` 脚本中的做法。
+[跳转到对应标题](#安装)
 
 
 
