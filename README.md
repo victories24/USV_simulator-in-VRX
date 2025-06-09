@@ -104,7 +104,26 @@ ros2 launch vrx_gz competition.launch.py world:=sydney_regatta
 
 2.终端操作
 
+为了操纵无人船移动，需要在ROS发布对应的话题，给予两桨一定的转速，或给予两舵一定的方向
 
+可以直接在终端输入类似的代码：
+
+```bash
+ros2 topic pub --once /wamv/thrusters/left/thrust std_msgs/msg/Float64 "{data: 20.0}"  # 左桨向前
+ros2 topic pub --once /wamv/thrusters/right/thrust std_msgs/msg/Float64 "{data: -20.0}"  # 右桨向后
+ros2 topic pub --once /wamv/thrusters/left/pos std_msgs/msg/Float64 "{data: -3.14}"  # 左舵旋转
+ros2 topic pub --once /wamv/thrusters/right/pos std_msgs/msg/Float64 "{data: 3.14}"  # 右舵旋转
+```
+
+也可以利用rqt可视化调节，打开终端输入：
+
+```bash
+rqt
+```
+
+这将打开与下图类似的窗口。点击 `Plugins` 下拉菜单，找到 `Topics` 选项，然后点击 `Message Publisher` 。
+从topic列表中依次选择四个推进器角度/桨主题，点击右侧加号添加。点击每个主题旁的箭头展开详情，在 `expression` 字段查看和修改当前数值。
+若要发布指令，双击对应主题的 `expression` ，修改数值后点击左边对勾发布。
 
 
 
