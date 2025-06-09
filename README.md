@@ -79,9 +79,9 @@ ros2 launch vrx_gz competition.launch.py world:=sydney_regatta
 
 ![VRX 仿真环境](picture/sydney_regatta.png)
 
-## vrx环境基础操作
+## VRX环境基础操作指引
 
-参照官方文档 [<u>Getting Around the VRX Environment</u>](https://github.com/osrf/vrx/wiki/getting_around_tutorial)
+参考官方文档 [<u>Getting Around the VRX Environment</u>](https://github.com/osrf/vrx/wiki/getting_around_tutorial)
 
 ### 一、WAM-V基础操纵
 
@@ -164,10 +164,50 @@ jstest-gtk
 3*.整体控制小船的运动，可以参考 `/my_wamv/mywamv_inverse_kinematic.py` 脚本中的做法。
 [跳转到对应标题](#逆运动学控制)
 
+### 世界
 
+VRX提供了一组基础世界环境，包含水体、天空、海岸线以及固定位置的 RobotX 元素。参考基础的世界文件，我们可以轻松创建自定义的世界，甚至向运行中的仿真系统动态添加新元素。
 
+1.修改世界配置文件
 
+注意到前文提供的启动命令：
 
+```bash
+ros2 launch vrx_gz competition.launch.py world:=sydney_regatta
+```
+
+这实际上启动了一个名为 [sydney_regatta.sdf](./vrx_ws/install/share/vrx_gz/worlds/sydney_regatta.sdf) 的世界配置文件。
+关于 `.sdf` 文件的格式，可以参考 [SDFormat](http://sdformat.org/tutorials?tut=spec_world&cat=specification&)。
+
+我们可以直接在其中修改相应的参数，以对测试环境进行快速的修改，包括：
+
+- 风速
+
+调整 `wind_direction` 和 `wind_mean_velocity` 以修改风向和风速。
+
+```bash
+<!-- Load the plugin for the wind --> 
+<plugin
+  filename="libUSVWind.so"
+  name="vrx::USVWind">
+  <wind_obj>
+    <name>wamv</name>
+    <link_name>wamv/base_link</link_name>
+    <coeff_vector>.5 .5 .33</coeff_vector>
+  </wind_obj>
+  <!-- Wind -->
+  <wind_direction>240</wind_direction>
+  <!-- in degrees -->
+  <wind_mean_velocity>0.0</wind_mean_velocity>
+  <var_wind_gain_constants>0</var_wind_gain_constants>
+  <var_wind_time_constants>2</var_wind_time_constants>
+  <random_seed>10</random_seed>
+  <!-- set to zero/empty to randomize -->
+  <update_rate>10</update_rate>
+  <topic_wind_speed>/vrx/debug/wind/speed</topic_wind_speed>
+  <topic_wind_direction>/vrx/debug/wind/direction</topic_wind_direction>
+ </plugin>
+```
 
 
 
