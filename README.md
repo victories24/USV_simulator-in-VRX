@@ -93,7 +93,7 @@ ros2 launch vrx_gz competition.launch.py world:=sydney_regatta
 
 ![WAM-V 螺旋桨](picture/wamv_thruster.png)
 
-在ROS topic中可以查看到以下topic，分别控制两舵的方向和螺旋桨的转速：
+在ROS topic中可以查看到以下topic，分别控制两舵的方向和螺旋桨的转速。注意，舵的控制范围在±π (±3.14)之间。
 
 ```bash
 /wamv/thrusters/left/pos
