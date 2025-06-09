@@ -83,7 +83,54 @@ ros2 launch vrx_gz competition.launch.py world:=sydney_regatta
 
 参照官方文档 [<u>Getting Around the VRX Environment</u>](https://github.com/osrf/vrx/wiki/getting_around_tutorial)
 
+1.WAM-V基础操纵
+
+在终端输入以下命令，可以打开仿真环境，并加载一个带有两个舵两个桨的无人船：
+
+```bash
+ros2 launch vrx_gz competition.launch.py world:=sydney_regatta
+```
+
+在ROS topic中可以查看到以下topic，分别控制两舵的方向和螺旋桨的转速：
+
+```bash
+/wamv/thrusters/left/pos
+/wamv/thrusters/left/thrust
+/wamv/thrusters/right/pos
+/wamv/thrusters/right/thrust
+```
+
+2.终端操作
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## WAM-V无人船的操纵和修改
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
