@@ -181,9 +181,25 @@ ros2 launch vrx_gz competition.launch.py world:=sydney_regatta
 
 我们可以直接在其中增减或修改各环境因素的组件，以对测试环境进行快速的修改，包括：
 
-- 风速
+- 障碍物
 
-调整 `wind_direction` 和 `wind_mean_velocity` 以修改风向和风速。
+可以自由增减避障用的浮标
+
+```bash
+<include>
+      <name>mb_marker_buoy_red</name>
+      <pose>-528 191 0 0 0 0</pose>
+      <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/mb_marker_buoy_red</uri>
+
+      ......
+
+      </plugin>
+    </include>
+```
+
+- 风力组件
+
+调整 `wind_direction` 和 `wind_mean_velocity` 以修改风向和风速。以及风阻系数（coeff_vector）和其他随机参数。
 
 ```bash
 <!-- Load the plugin for the wind --> 
