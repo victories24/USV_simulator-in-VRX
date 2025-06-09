@@ -268,8 +268,18 @@ ros2 launch vrx_gz competition.launch.py world:=sydney_regatta
     </plugin>
 ```
 
+2.启动自定义的世界文件
 
 
+
+
+
+
+
+
+
+
+### RViz仿真可视化
 
 
 
