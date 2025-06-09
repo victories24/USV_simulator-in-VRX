@@ -183,7 +183,7 @@ ros2 launch vrx_gz competition.launch.py world:=sydney_regatta
 
 - 障碍物
 
-可以自由增减避障用的浮标
+可以自由增减避障用的浮标，在不考虑障碍物的测试环境中建议删除。
 
 ```bash
 <include>
@@ -197,7 +197,7 @@ ros2 launch vrx_gz competition.launch.py world:=sydney_regatta
     </include>
 ```
 
-![障碍物]（picture/VRX_buoy.png）
+![障碍物](picture/VRX_buoy.png)
 
 - 风力组件
 
