@@ -153,7 +153,13 @@ ls /dev/input/
 
 观察输出是否出现类似 `js0` 的字样。
 
-其次，可以考虑手柄的轴配置是否正确，参考 [wamv.yaml](./vrx_ws/install/share/vrx_gz/config/wamv.yaml)
+其次，可以考虑手柄的轴配置是否正确，在配置文件 [wamv.yaml](./vrx_ws/install/share/vrx_gz/config/wamv.yaml) 中修改映衬轴（如将右摇杆对应轴改为3,4），以排除手柄轴发出与接收信号不匹配的问题。
+
+最后，可以利用工具对首并进行校准，终端输入命令打开后，点击 `properties` ，进入 `calibration` 进行校准。
+
+```bash
+jstest-gtk
+```
 
 
 
