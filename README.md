@@ -197,6 +197,8 @@ ros2 launch vrx_gz competition.launch.py world:=sydney_regatta
     </include>
 ```
 
+![障碍物]（picture/VRX_buoy.png）
+
 - 风力组件
 
 调整 `wind_direction` 和 `wind_mean_velocity` 以修改风向和风速。以及风阻系数（coeff_vector）和其他随机参数。
