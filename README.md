@@ -318,6 +318,8 @@ ros2 launch vrx_gz competition.launch.py world:=sydney_regatta
 ros2 launch vrx_gazebo rviz.launch.py
 ```
 
+![RViz可视化界面](picture/VRX_RViz.png)
+
 如果想要启动自己配置的RViz文件，可以将配置文件放在 `<YOUR_VRX_INSTALLATION>/install/share/vrx_gazebo/config/` 下，并修改启动脚本 `rviz.launch.py` ，改为自己配置的文件名：
 
 ```bash
