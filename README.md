@@ -164,7 +164,7 @@ jstest-gtk
 3*.整体控制小船的运动，可以参考 `/my_wamv/mywamv_inverse_kinematic.py` 脚本中的做法。
 [跳转到对应标题](#逆运动学控制)
 
-### 世界
+### 二、创建和修改仿真环境
 
 VRX提供了一组基础世界环境，包含水体、天空、海岸线以及固定位置的 RobotX 元素。参考基础的世界文件，我们可以轻松创建自定义的世界，甚至向运行中的仿真系统动态添加新元素。
 
@@ -302,21 +302,40 @@ ros2 launch vrx_gz competition.launch.py world:=sydney_regatta_custom
 ```
 
 
-
-
-
-
-
-
-
-### RViz仿真可视化
-
-
-
 关于VRX如何对这些环境因素进行仿真，以及组件的具体细节，可以查看 [跳转](#VRX各组件的具体定义)
 
+### 三、RViz仿真可视化
+官方提供了为WAM-V配置的RViz文件和启动脚本，参考 [rviz.launch.py](./vrx_ws/install/share/vrx_gazebo/launch/rviz.launch.py) 。先启动gazebo并运行仿真环境：
 
-## WAM-V无人船的操纵和修改
+
+```bash
+ros2 launch vrx_gz competition.launch.py world:=sydney_regatta
+```
+
+然后运行RViz：
+
+```bash
+ros2 launch vrx_gazebo rviz.launch.py
+```
+
+如果想要启动自己配置的RViz文件，可以将配置文件放在 `<YOUR_VRX_INSTALLATION>/install/share/vrx_gazebo/config/` 下，并修改启动脚本 `rviz.launch.py` ，改为自己配置的文件名：
+
+```bash
+rvz = Node(
+      package='rviz2',
+      namespace='',
+      executable='rviz2',
+      name='rviz2',
+      arguments=['-d' + os.path.join(get_package_share_directory('vrx_gazebo'), 'config', 'rviz_vrx_rsp.rviz')]
+        )
+```
+
+修改示例可参考 [固定视角的调整]()
+
+整合项目需要修改启动脚本 `rviz.launch.py` ，参考 [跳转](#项目整合)
+
+
+
 
 
 
@@ -337,6 +356,10 @@ ros2 launch vrx_gz competition.launch.py world:=sydney_regatta_custom
 
 
 ## 逆运动学控制
+
+
+## 项目整合
+
 
 # station_keeping
 # way_finding
