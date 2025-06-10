@@ -278,7 +278,7 @@ $ cd example_vrx_package/
 $ cp <YOUR_VRX_INSTALLATION>/src/vrx/vrx_gz/worlds/sydney_regatta.sdf sydney_regatta_custom.sdf
 ```
 
-打开创建的 `sydney_regatta_custom.sdf` 文件，并添加想要的组件。比如，在 </world> 标签前插入以下代码，添加一个需避障的浮标:
+打开创建的 `sydney_regatta_custom.sdf` 文件，并添加想要的组件。比如，在 </world> 标签前插入以下代码，添加一个避障的浮标:
 
 ```bash
 <model name="navigation_buoy">
