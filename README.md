@@ -5,11 +5,11 @@
 VRX(Virtual RobotX)是一个无人船的仿真环境，与RobotX比赛合作提供了水面无人船的仿真环境和任务，以及WAM-V平台。该项目模拟了真实的海洋场景，包括基于Fossen的波浪、洋流和风场模型；也搭建了全面的无人船平台，并提供了Lidar、摄像头、GPS和IMU等组件。
 
 *下文将从安装、基础操作和深度解析三个方面对vrx进行解析。*
-官方教程可参考[VRX Tutorial](https://github.com/osrf/vrx/wiki/tutorials)。
+官方教程可参考 [VRX Tutorial](https://github.com/osrf/vrx/wiki/tutorials)。
 
 ## 安装
 
-官方教程[VRX Getting Started](https://github.com/osrf/vrx/wiki/getting_started_tutorial)。
+官方教程 [VRX Getting Started](https://github.com/osrf/vrx/wiki/getting_started_tutorial)。
 
 本文的操作环境如下。新安装建议采用最新Release推荐版本*Gazebo Harmonic* 和 *ROS 2 Jazzy*。
 ```
@@ -340,7 +340,7 @@ rvz = Node(
 
 ### 四、自定义WAM-V推进器与组件
 
-VRX提供了简易的自定义WAM-V配置和URDF文件生成方法。通过编写推进器YAML配置文件和组件YAML配置文件，可以运行脚本自动生成包含指定推进器和组件的自定义WAM-V URDF文件。参考 [官方教程](https://github.com/osrf/vrx/wiki/customizing_wamv_beginner_tutorial)
+VRX提供了简易的自定义WAM-V配置和URDF文件生成方法。通过编写推进器YAML配置文件和组件YAML配置文件，可以运行脚本自动生成包含指定推进器和组件的自定义WAM-V URDF文件。参考 [Customizing the WAM-V (Beginner)](https://github.com/osrf/vrx/wiki/customizing_wamv_beginner_tutorial)
 
 
 
