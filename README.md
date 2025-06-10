@@ -201,7 +201,7 @@ ros2 launch vrx_gz competition.launch.py world:=sydney_regatta
 
 - 风力组件
 
-调整 `wind_direction` 和 `wind_mean_velocity` 以修改风向和风速。以及风阻系数（coeff_vector）和其他随机参数。
+调整 `wind_direction` 和 `wind_mean_velocity` 以修改风向和风速。以及风阻系数`coeff_vector`和其他随机参数。
 
 ```bash
 <!-- Load the plugin for the wind --> 
