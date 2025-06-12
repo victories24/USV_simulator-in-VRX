@@ -340,7 +340,7 @@ rvz = Node(
 
 ### 四、自定义WAM-V推进器与组件
 
-VRX提供了简易的自定义WAM-V配置和URDF文件生成方法。通过编写推进器YAML配置文件和组件YAML配置文件，可以运行脚本自动生成包含指定推进器和组件的自定义WAM-V URDF文件。参考 [Customizing the WAM-V (Beginner)](https://github.com/osrf/vrx/wiki/customizing_wamv_beginner_tutorial)
+VRX 提供了简易的自定义 WAM-V 配置和 URDF 文件生成方法。通过编写推进器YAML配置文件和组件YAML配置文件，可以运行脚本自动生成包含指定推进器和组件的自定义WAM-V URDF文件。参考 [Customizing the WAM-V (Beginner)](https://github.com/osrf/vrx/wiki/customizing_wamv_beginner_tutorial)
 
 
 
