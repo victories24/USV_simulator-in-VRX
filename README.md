@@ -369,7 +369,7 @@ ros2 launch vrx_gazebo generate_wamv.launch.py \
 ros2 launch vrx_gz competition.launch.py world:=sydney_regatta urdf:=`pwd`/wamv_target.urdf
 ```
 
-
+![空的WAMV模型](picture/VRX_empty_WAMV.png)
 
 
 
