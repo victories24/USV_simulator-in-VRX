@@ -4,8 +4,6 @@ VRX(Virtual RobotX)是一个无人船的仿真环境，与RobotX比赛合作提�
 
 官方教程可参考 [VRX Tutorial](https://github.com/osrf/vrx/wiki/tutorials)。
 
----
-
 ## 安装
 
 官方教程 [VRX Getting Started](https://github.com/osrf/vrx/wiki/getting_started_tutorial)。
@@ -17,8 +15,6 @@ ROS2 Humble
 gazebo garden v7.9.0
 vrx v2.4.1
 ```
-
----
 
 ### 一、安装基础环境
 
