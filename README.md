@@ -302,7 +302,7 @@ ros2 launch vrx_gz competition.launch.py world:=sydney_regatta_custom
 ```
 
 
-关于VRX如何对这些环境因素进行仿真，以及组件的具体细节，可以查看 [WAMV参数配置](#*五、WAMV参数配置)
+关于VRX如何对这些环境因素进行仿真，以及组件的具体细节，可以查看 [WAMV参数配置](#五WAMV参数配置)
 
 ### 三、RViz仿真可视化
 官方提供了为WAM-V配置的RViz文件和启动脚本，参考 [rviz.launch.py](./vrx_ws/install/share/vrx_gazebo/launch/rviz.launch.py) 。先启动gazebo并运行仿真环境：
