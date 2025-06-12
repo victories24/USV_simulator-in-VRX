@@ -11,7 +11,7 @@ gazebo garden v7.9.0
 vrx v2.4.1
 ```
 
-具体的项目实现细节可以参考：
+具体的项目实现细节分以下文档进行陈述：
 
 - [VRX_Tutorial](./VRX_Tutorial.md)
 - [Mywamv_Competition.md](./Mywamv_Competition.md)
