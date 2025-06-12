@@ -5,7 +5,8 @@ VRX(Virtual RobotX)是一个无人船的仿真环境，与RobotX比赛合作提�
 官方教程可参考 [VRX Tutorial](https://github.com/osrf/vrx/wiki/tutorials)。
 
 
----<br><br>
+---
+<br><br>
 
 
 ## 安装
