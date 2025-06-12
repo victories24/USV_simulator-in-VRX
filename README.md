@@ -493,7 +493,7 @@ WAM-V无人艇的行为由一组Gazebo插件控制，其中水动力特性和推
 
 - 推进特性（如推力限制/线性非线性映射）`在wamv_gazebo_thruster_config.xacro` 中配置
 
-
+关于数值推导的详细理论方法，可以参考这篇论文 [Station-keeping control of an unmanned surface vehicle exposed to current and wind disturbances](https://doi.org/10.1016/j.oceaneng.2016.09.037)
 
 
 
