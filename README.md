@@ -400,7 +400,7 @@ ros2 launch vrx_gazebo generate_wamv.launch.py \
 
 这会生成三个"T"字型分布的推进器，如图所示：
 
-![带推进器的WAMV模型](picture/VRX_empty_WAMV.png)
+![带推进器的WAMV模型](picture/VRX_thruster_WAMV.png)
 
 
 ## VRX各组件的具体定义
