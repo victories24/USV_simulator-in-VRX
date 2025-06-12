@@ -353,7 +353,7 @@ touch empty_thruster_config.yaml  # 推进器配置文件
 touch empty_component_config.yaml  # 组件配置文件
 ```
 
-使用VRX自带的生成脚本 `generate_wamv.launch.py` 生成新的URDF模型：
+使用VRX自带的生成脚本 `generate_wamv.launch.py` ，读取推进器和组件配置文件，并生成新的URDF模型。
 
 ```bash
 ros2 launch vrx_gazebo generate_wamv.launch.py \
@@ -371,8 +371,36 @@ ros2 launch vrx_gz competition.launch.py world:=sydney_regatta urdf:=`pwd`/wamv_
 
 ![空的WAMV模型](picture/VRX_empty_WAMV.png)
 
+2.自定义推进器配置
 
+在之前创建的推进器配置文件中，参照以下内容修改文件：
 
+```bash
+engine:
+  - prefix: "left"  # 左侧推进器
+    position: "-2.373776 1.027135 0.318237"  # XYZ坐标(m)
+    orientation: "0.0 0.0 0.0"  # 欧拉角(弧度)
+  - prefix: "right"  # 右侧推进器
+    position: "-2.373776 -1.027135 0.318237"
+    orientation: "0.0 0.0 0.0"
+  - prefix: "middle"  # 中部推进器
+    position: "0 0 0.318237"
+    orientation: "0.0 0.0 0.0"
+```
+
+生成新的带推进器的WAM-V模型，注意先删除老的URDF文件。
+
+```bash
+ros2 launch vrx_gazebo generate_wamv.launch.py \
+    component_yaml:=`pwd`/empty_component_config.yaml \
+    thruster_yaml:=`pwd`/example_thruster_config.yaml \
+    wamv_target:=`pwd`/wamv_target.urdf \
+    wamv_locked:=False
+```
+
+这会生成三个"T"字型分布的推进器，如图所示：
+
+![带推进器的WAMV模型](picture/VRX_empty_WAMV.png)
 
 
 ## VRX各组件的具体定义
