@@ -485,13 +485,15 @@ ros2 launch vrx_gazebo generate_wamv.launch.py component_yaml:=`pwd`/example_com
 ![自定义的WAMV模型](picture/VRX_full_WAMV.png)
 
 
+### *五、WAMV参数配置
+
+WAM-V无人艇的行为由一组Gazebo插件控制，其中水动力特性和推进系统的相关参数通过两个xacro文件设置：
+
+- 水动力参数（如阻力和附加质量）在 `wamv_gazebo_dynamics_plugin.xacro` 中配置
+
+- 推进特性（如推力限制/线性非线性映射）`在wamv_gazebo_thruster_config.xacro` 中配置
 
 
-
-
-
-
-## VRX各组件的具体定义
 
 
 
