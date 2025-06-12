@@ -4,7 +4,6 @@ VRX(Virtual RobotX)是一个无人船的仿真环境，与RobotX比赛合作提�
 
 官方教程可参考 [VRX Tutorial](https://github.com/osrf/vrx/wiki/tutorials)。
 
-<br>
 ---
 
 ## 安装
@@ -83,9 +82,7 @@ ros2 launch vrx_gz competition.launch.py world:=sydney_regatta
 
 ![VRX 仿真环境](picture/sydney_regatta.png)
 
-<br>
 ---
-
 
 ## VRX环境基础操作指引
 
