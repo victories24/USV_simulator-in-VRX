@@ -99,7 +99,7 @@ ros2 launch vrx_gz competition.launch.py world:=sydney_regatta
 /wamv/thrusters/right/thrust
 ```
 
-1.**终端操作**
+1. **终端操作**
 
 为了操纵无人船移动，需要在ROS发布对应的话题，给予两桨一定的转速，或给予两舵一定的方向
 
@@ -124,7 +124,7 @@ rqt
 
 ![rqt可视化窗口](picture/rqt.png)
 
-2.**手柄控制**
+2. **手柄控制**
 
 vrx也提供了手柄操控小船的脚本，保存在 `/vrx/vrx_gz/launch` 下，安装手柄相关依赖后可以launch启动对应文件：
 
@@ -164,7 +164,7 @@ jstest-gtk
 
 VRX提供了一组基础世界环境，包含水体、天空、海岸线以及固定位置的 RobotX 元素。参考基础的世界文件，我们可以轻松创建自定义的世界，甚至向运行中的仿真系统动态添加新元素。
 
-1.**修改世界配置文件**
+1. **修改世界配置文件**
 
 注意到前文提供的启动命令：
 
@@ -265,7 +265,7 @@ ros2 launch vrx_gz competition.launch.py world:=sydney_regatta
 ```
 
 
-2.**启动自定义的世界文件**
+2. **启动自定义的世界文件**
 
 除了在原世界文件中直接修改外，也可以自己创建新的世界文件。以 `sydney_regatta.sdf` 为基础，通过以下方式创造一个仅包含水体、天空和海岸的基本环境。复制地址改为vrx实际安装地址。
 
@@ -336,7 +336,7 @@ rvz = Node(
 
 VRX提供了简易的自定义WAM-V配置和URDF文件生成方法。通过编写推进器YAML配置文件和组件YAML配置文件，可以运行脚本自动生成包含指定推进器和组件的自定义WAM-V URDF文件。参考 [Customizing the WAM-V (Beginner)](https://github.com/osrf/vrx/wiki/customizing_wamv_beginner_tutorial)
 
-1.**创建空的WAM-V模型**
+1. **创建空的WAM-V模型**
 
 首先，我们需要创建一个基础的WAM-V模型以便后续添加组件和推进器。创建目录并创建两个空白配置文件：
 
@@ -365,7 +365,7 @@ ros2 launch vrx_gz competition.launch.py world:=sydney_regatta urdf:=`pwd`/wamv_
 
 ![空的WAMV模型](picture/VRX_empty_WAMV.png)
 
-2.**自定义推进器配置**
+2. **自定义推进器配置**
 
 在之前创建的推进器配置文件中，参照以下内容修改文件：
 
@@ -397,7 +397,7 @@ ros2 launch vrx_gazebo generate_wamv.launch.py \
 ![带推进器的WAMV模型](picture/VRX_thruster_WAMV.png)
 
 
-3.**自定义组件配置**
+3. **自定义组件配置**
 
 相同地，修改 `example_component_config.yaml` :
 
