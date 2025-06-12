@@ -486,11 +486,7 @@ ros2 launch vrx_gazebo generate_wamv.launch.py component_yaml:=`pwd`/example_com
 ![自定义的WAMV模型](picture/VRX_full_WAMV.png)
 
 
-### 五、环境因素修改
-
-
-
-### *六、WAMV参数配置
+### *五、WAMV参数配置
 
 WAM-V无人艇的行为由一组Gazebo插件控制，其中水动力特性和推进系统的相关参数通过两个xacro文件设置：
 
@@ -502,7 +498,7 @@ WAM-V无人艇的行为由一组Gazebo插件控制，其中水动力特性和推
 
 1.水动力参数
 
-- 流体动力学模型：基于 `libSurface.so` 插件实现多浮力作用点的波浪适应性浮力计算
+- 流体动力学模型：基于 `libSurface.so` 插件实现多浮力作用点的波浪适应性浮力计算。
 
 ```bash
 <plugin filename="libSurface.so" name="vrx::Surface">
@@ -520,8 +516,35 @@ WAM-V无人艇的行为由一组Gazebo插件控制，其中水动力特性和推
 </plugin>
 ```
 
+- 阻力模型：基于 `libSimpleHydrodynamics.so` 插件，参照Fossen的经典海洋载具动力学模型模拟，包括：
+ - 附加质量效应（Added Mass）
+船加速运动带动流体一起运动产生“虚拟质量”，与加速度相关。加速更难，减速更易。
+ - 线性与非线性阻力（Drag Forces）
+线性阻尼：与速度正比，主导低速
+二次阻尼：与速度平方正比，主导高速
+兴波阻力：未涉及
+ - 科里奥利力（Coriolis Force）
+旋转产生惯性力，以及附加质量与物体运动的耦合。v,w同时存在时，转向更困难
 
+```bash
+<plugin filename="libSimpleHydrodynamics.so" name="vrx::SimpleHydrodynamics">
+  <link_name>${namespace}/base_link</link_name>
+  <!-- 附加质量（单位：kg） -->
+  <xDotU>0.0</xDotU>   <!-- Surge方向附加质量 -->
+  <yDotV>0.0</yDotV>   <!-- Sway方向附加质量 -->
+  <nDotR>0.0</nDotR>   <!-- Yaw旋转附加质量 -->
 
+  <!-- 线性阻力系数（单位：N/(m/s)） -->
+  <xU>100.0</xU>       <!-- Surge方向线性阻力 -->
+  <yV>100.0</yV>       <!-- Sway方向线性阻力 -->
+  <zW>500.0</zW>       <!-- Heave方向线性阻力 -->
+
+  <!-- 二次阻力系数（单位：N/(m/s)^2） -->
+  <xUU>150.0</xUU>     <!-- Surge方向二次阻力 -->
+  <yVV>100.0</yVV>     <!-- Sway方向二次阻力 -->
+  <nRR>800.0</nRR>     <!-- Yaw旋转二次阻力 -->
+</plugin>
+```
 
 
 
