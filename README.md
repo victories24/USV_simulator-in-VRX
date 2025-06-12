@@ -268,6 +268,7 @@ ros2 launch vrx_gz competition.launch.py world:=sydney_regatta
     </plugin>
 ```
 
+
 2.启动自定义的世界文件
 
 除了在原世界文件中直接修改外，也可以自己创建新的世界文件。以 `sydney_regatta.sdf` 为基础，通过以下方式创造一个仅包含水体、天空和海岸的基本环境。复制地址改为vrx实际安装地址。
@@ -485,17 +486,39 @@ ros2 launch vrx_gazebo generate_wamv.launch.py component_yaml:=`pwd`/example_com
 ![自定义的WAMV模型](picture/VRX_full_WAMV.png)
 
 
-### *五、WAMV参数配置
+### 五、环境因素修改
+
+
+
+### *六、WAMV参数配置
 
 WAM-V无人艇的行为由一组Gazebo插件控制，其中水动力特性和推进系统的相关参数通过两个xacro文件设置：
 
 - 水动力参数（如阻力和附加质量）在 `wamv_gazebo_dynamics_plugin.xacro` 中配置
 
-- 推进特性（如推力限制/线性非线性映射）`在wamv_gazebo_thruster_config.xacro` 中配置
+- 推进特性（如推力限制/线性非线性映射）在 [wamv_gazebo_thruster_config.xacro](./vrx_ws/install/share/wamv_gazebo/urdf/dynamics/wamv_gazebo_thruster_config.xacro) 中配置
 
 关于数值推导的详细理论方法，可以参考这篇论文 [Station-keeping control of an unmanned surface vehicle exposed to current and wind disturbances](https://doi.org/10.1016/j.oceaneng.2016.09.037)
 
+1.水动力参数
 
+- 流体动力学模型：基于 `libSurface.so` 插件实现多浮力作用点的波浪适应性浮力计算
+
+```bash
+<plugin filename="libSurface.so" name="vrx::Surface">
+  <link_name>${namespace}/base_link</link_name>
+  <hull_length>4.9</hull_length>       <!-- 圆柱体船体长度（米） -->
+  <hull_radius>0.213</hull_radius>     <!-- 圆柱体船体半径（米） -->
+  <fluid_level>0</fluid_level>         <!-- 流体表面高度（世界坐标系Z=0） -->
+  <points>                             <!-- 浮力作用点（局部坐标系） -->
+    <point>0.6 1.03 0</point>          <!-- 前作用点 -->
+    <point>-1.4 1.03 0</point>         <!-- 后作用点-->
+  </points>
+  <wavefield>
+    <topic>/vrx/wavefield/parameters</topic>  <!-- 波浪参数话题 -->
+  </wavefield>
+</plugin>
+```
 
 
 
