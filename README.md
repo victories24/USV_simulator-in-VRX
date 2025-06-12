@@ -496,6 +496,8 @@ WAM-V无人艇的行为由一组Gazebo插件控制，其中水动力特性和推
 
 关于数值推导的详细理论方法，可以参考这篇论文 [Station-keeping control of an unmanned surface vehicle exposed to current and wind disturbances](https://doi.org/10.1016/j.oceaneng.2016.09.037)
 
+在仿真过程中，可能会遇到小船最大速度过慢的问题，可以参考 [How to change the boat velocity](https://github.com/osrf/vrx/issues/731) 对上述xacro文件进行修改。
+
 
 
 1.**水动力参数**
@@ -549,13 +551,32 @@ WAM-V无人艇的行为由一组Gazebo插件控制，其中水动力特性和推
 
 2.**推进器特性**
 
-- **船舶属性**
-  - `x_uu` :船舶阻力系数中的二次项系数(单位: kg/m)
-  - `x_u` : 船舶阻力系数中的线性项系数(单位: kg/s)
-  - `max_velocity_mps` : 最大速度(单位: 米/秒)
-
 ```xml
+<gazebo>
+    <!-- 阻力系数参数 -->
+    <xacro:property name="x_uu" value="72.4" />  <!-- 二次阻力系数(kg/m) -->
+    <xacro:property name="x_u" value="51.3" />    <!-- 线性阻力系数(kg/s) -->
+    <xacro:property name="max_velocity_mps" value="10.71667" />  <!-- 最大航速(m/s) -->
 
+    <!-- 推进器插件配置 -->
+    <plugin
+      filename="gz-sim-thruster-system"  <!-- 插件文件名 -->
+      name="gz::sim::systems::Thruster"> <!-- 插件类名 -->
+      
+      <joint_name>${namespace}/${name}_engine_propeller_joint</joint_name>  <!-- 连接的关节名 -->
+      <thrust_coefficient>0.004422</thrust_coefficient>  <!-- 推力系数 -->
+      <fluid_density>1000</fluid_density>  <!-- 流体密度(kg/m³) -->
+      <propeller_diameter>0.2</propeller_diameter>  <!-- 螺旋桨直径(m) -->
+      <velocity_control>true</velocity_control>  <!-- 速度控制模式 -->
+      
+      <!-- 最大推力=((线性阻力+二次阻力*速度)*速度)/2 -->
+      <max_thrust_cmd>${((x_u + x_uu * max_velocity_mps) * max_velocity_mps)/ 2}</max_thrust_cmd>
+      
+      <namespace>${namespace}</namespace>  <!-- ROS命名空间 -->
+      <topic>thrusters/${name}/thrust</topic>  <!-- 控制话题 -->
+      <name>${name}</name>  <!-- 推进器名称 -->
+    </plugin>
+</gazebo>
 ```
 
 
