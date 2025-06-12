@@ -102,7 +102,7 @@ ros2 launch vrx_gz competition.launch.py world:=sydney_regatta
 /wamv/thrusters/right/thrust
 ```
 
-1.终端操作
+1.**终端操作**
 
 为了操纵无人船移动，需要在ROS发布对应的话题，给予两桨一定的转速，或给予两舵一定的方向
 
@@ -127,7 +127,7 @@ rqt
 
 ![rqt可视化窗口](picture/rqt.png)
 
-2.手柄控制
+2.**手柄控制**
 
 vrx也提供了手柄操控小船的脚本，保存在 `/vrx/vrx_gz/launch` 下，安装手柄相关依赖后可以launch启动对应文件：
 
@@ -168,7 +168,7 @@ jstest-gtk
 
 VRX提供了一组基础世界环境，包含水体、天空、海岸线以及固定位置的 RobotX 元素。参考基础的世界文件，我们可以轻松创建自定义的世界，甚至向运行中的仿真系统动态添加新元素。
 
-1.修改世界配置文件
+1.**修改世界配置文件**
 
 注意到前文提供的启动命令：
 
@@ -269,7 +269,7 @@ ros2 launch vrx_gz competition.launch.py world:=sydney_regatta
 ```
 
 
-2.启动自定义的世界文件
+2.**启动自定义的世界文件**
 
 除了在原世界文件中直接修改外，也可以自己创建新的世界文件。以 `sydney_regatta.sdf` 为基础，通过以下方式创造一个仅包含水体、天空和海岸的基本环境。复制地址改为vrx实际安装地址。
 
@@ -343,7 +343,7 @@ rvz = Node(
 
 VRX提供了简易的自定义WAM-V配置和URDF文件生成方法。通过编写推进器YAML配置文件和组件YAML配置文件，可以运行脚本自动生成包含指定推进器和组件的自定义WAM-V URDF文件。参考 [Customizing the WAM-V (Beginner)](https://github.com/osrf/vrx/wiki/customizing_wamv_beginner_tutorial)
 
-1.创建空的WAM-V模型
+1.**创建空的WAM-V模型**
 
 首先，我们需要创建一个基础的WAM-V模型以便后续添加组件和推进器。创建目录并创建两个空白配置文件：
 
@@ -372,7 +372,7 @@ ros2 launch vrx_gz competition.launch.py world:=sydney_regatta urdf:=`pwd`/wamv_
 
 ![空的WAMV模型](picture/VRX_empty_WAMV.png)
 
-2.自定义推进器配置
+2.**自定义推进器配置**
 
 在之前创建的推进器配置文件中，参照以下内容修改文件：
 
@@ -404,7 +404,7 @@ ros2 launch vrx_gazebo generate_wamv.launch.py \
 ![带推进器的WAMV模型](picture/VRX_thruster_WAMV.png)
 
 
-3.自定义组件配置：
+3.**自定义组件配置**
 
 相同地，修改 `example_component_config.yaml` :
 
@@ -496,7 +496,9 @@ WAM-V无人艇的行为由一组Gazebo插件控制，其中水动力特性和推
 
 关于数值推导的详细理论方法，可以参考这篇论文 [Station-keeping control of an unmanned surface vehicle exposed to current and wind disturbances](https://doi.org/10.1016/j.oceaneng.2016.09.037)
 
-1.水动力参数
+
+
+1.**水动力参数**
 
 - 流体动力学模型：基于 `libSurface.so` 插件实现多浮力作用点的波浪适应性浮力计算。
 
@@ -517,20 +519,13 @@ WAM-V无人艇的行为由一组Gazebo插件控制，其中水动力特性和推
 ```
 
 - **阻力模型**：基于 `libSimpleHydrodynamics.so` 插件，参照Fossen的经典海洋载具动力学模型模拟，包括：
-  - **附加质量效应（Added Mass）**  
+  - 附加质量效应（Added Mass)
     船加速运动带动流体一起运动产生“虚拟质量”，与加速度相关。加速更难，减速更易。
-  - **线性与非线性阻力（Drag Forces）**  
+  - 线性与非线性阻力（Drag Forces） 
     - 线性阻尼：与速度正比，主导低速  
     - 二次阻尼：与速度平方正比，主导高速  
-    - 兴波阻力：未涉及  
-  - **科里奥利力（Coriolis Force）**  
+  - 科里奥利力（Coriolis Force）  
     旋转产生惯性力，以及附加质量与物体运动的耦合。v,w同时存在时，转向更困难。
-
-```math
-D_l = -diag\{X_u, Y_v, Z_w, K_p, M_q, N_r\}
-```
-
-
 
 ```bash
 <plugin filename="libSimpleHydrodynamics.so" name="vrx::SimpleHydrodynamics">
