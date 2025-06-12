@@ -526,6 +526,12 @@ WAM-V无人艇的行为由一组Gazebo插件控制，其中水动力特性和推
  - 科里奥利力（Coriolis Force）
 旋转产生惯性力，以及附加质量与物体运动的耦合。v,w同时存在时，转向更困难
 
+```math
+D_l = -diag\{X_u, Y_v, Z_w, K_p, M_q, N_r\}
+```
+
+
+
 ```bash
 <plugin filename="libSimpleHydrodynamics.so" name="vrx::SimpleHydrodynamics">
   <link_name>${namespace}/base_link</link_name>
