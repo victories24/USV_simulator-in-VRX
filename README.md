@@ -492,7 +492,7 @@ WAM-V无人艇的行为由一组Gazebo插件控制，其中水动力特性和推
 
 - 水动力参数（如阻力和附加质量）在 [wamv_gazebo_dynamics_plugin.xacro](./vrx_ws/install/share/wamv_gazebo/urdf/dynamics/wamv_gazebo_dynamics_plugin.xacro) 中配置
 
-- 推进特性（如推力限制/线性非线性映射）在 [wamv_gazebo_thruster_config.xacro](./vrx_ws/install/share/wamv_gazebo/urdf/thruster_layouts/wamv_gazebo_thruster_config.xacro) 中配置
+- 推进器特性（如推力限制/线性非线性映射）在 [wamv_gazebo_thruster_config.xacro](./vrx_ws/install/share/wamv_gazebo/urdf/thruster_layouts/wamv_gazebo_thruster_config.xacro) 中配置
 
 关于数值推导的详细理论方法，可以参考这篇论文 [Station-keeping control of an unmanned surface vehicle exposed to current and wind disturbances](https://doi.org/10.1016/j.oceaneng.2016.09.037)
 
@@ -500,9 +500,9 @@ WAM-V无人艇的行为由一组Gazebo插件控制，其中水动力特性和推
 
 1.**水动力参数**
 
-- 流体动力学模型：基于 `libSurface.so` 插件实现多浮力作用点的波浪适应性浮力计算。
+- **流体动力学模型**：基于 `libSurface.so` 插件实现左、右船体多浮力作用点的波浪适应性浮力计算。
 
-```bash
+```xml
 <plugin filename="libSurface.so" name="vrx::Surface">
   <link_name>${namespace}/base_link</link_name>
   <hull_length>4.9</hull_length>       <!-- 圆柱体船体长度（米） -->
@@ -527,7 +527,7 @@ WAM-V无人艇的行为由一组Gazebo插件控制，其中水动力特性和推
   - 科里奥利力（Coriolis Force）  
     旋转产生惯性力，以及附加质量与物体运动的耦合。v,w同时存在时，转向更困难。
 
-```bash
+```xml
 <plugin filename="libSimpleHydrodynamics.so" name="vrx::SimpleHydrodynamics">
   <link_name>${namespace}/base_link</link_name>
   <!-- 附加质量（单位：kg） -->
@@ -547,9 +547,16 @@ WAM-V无人艇的行为由一组Gazebo插件控制，其中水动力特性和推
 </plugin>
 ```
 
+2.**推进器特性**
 
+- **船舶属性**
+  - `x_uu` :船舶阻力系数中的二次项系数(单位: kg/m)
+  - `x_u` : 船舶阻力系数中的线性项系数(单位: kg/s)
+  - `max_velocity_mps` : 最大速度(单位: 米/秒)
 
+```bash
 
+```
 
 
 
