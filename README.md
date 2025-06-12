@@ -494,9 +494,9 @@ ros2 launch vrx_gazebo generate_wamv.launch.py component_yaml:=`pwd`/example_com
 
 WAM-V无人艇的行为由一组Gazebo插件控制，其中水动力特性和推进系统的相关参数通过两个xacro文件设置：
 
-- 水动力参数（如阻力和附加质量）在 `wamv_gazebo_dynamics_plugin.xacro` 中配置
+- 水动力参数（如阻力和附加质量）在 [wamv_gazebo_dynamics_plugin.xacro](./vrx_ws/install/share/wamv_gazebo/urdf/dynamics/wamv_gazebo_dynamics_plugin.xacro) 中配置
 
-- 推进特性（如推力限制/线性非线性映射）在 [wamv_gazebo_thruster_config.xacro](./vrx_ws/install/share/wamv_gazebo/urdf/dynamics/wamv_gazebo_thruster_config.xacro) 中配置
+- 推进特性（如推力限制/线性非线性映射）在 [wamv_gazebo_thruster_config.xacro](./vrx_ws/install/share/wamv_gazebo/urdf/thruster_layouts/wamv_gazebo_thruster_config.xacro) 中配置
 
 关于数值推导的详细理论方法，可以参考这篇论文 [Station-keeping control of an unmanned surface vehicle exposed to current and wind disturbances](https://doi.org/10.1016/j.oceaneng.2016.09.037)
 
