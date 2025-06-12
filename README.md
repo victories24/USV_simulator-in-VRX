@@ -486,6 +486,11 @@ ros2 launch vrx_gazebo generate_wamv.launch.py component_yaml:=`pwd`/example_com
 
 
 
+
+
+
+
+
 ## VRX各组件的具体定义
 
 
