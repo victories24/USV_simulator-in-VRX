@@ -185,7 +185,7 @@ ros2 launch vrx_gz competition.launch.py world:=sydney_regatta
 
 可以自由增减避障用的浮标，在不考虑障碍物的测试环境中建议删除。
 
-```bash
+```xml
 <include>
       <name>mb_marker_buoy_red</name>
       <pose>-528 191 0 0 0 0</pose>
@@ -203,7 +203,7 @@ ros2 launch vrx_gz competition.launch.py world:=sydney_regatta
 
 调整 `wind_direction` 和 `wind_mean_velocity` 以修改风向和风速。以及风阻系数`coeff_vector`和其他随机参数。
 
-```bash
+```xml
 <!-- Load the plugin for the wind --> 
 <plugin
   filename="libUSVWind.so"
@@ -231,7 +231,7 @@ ros2 launch vrx_gz competition.launch.py world:=sydney_regatta
 
 包含4个波浪参数， 波浪方向 (direction)、波浪增益 (gain)、波浪周期 (period)和波浪陡度 (steepness)。
 
-```bash
+```xml
 <!-- The wave field -->
     <plugin filename="libPublisherPlugin.so" name="vrx::PublisherPlugin">
       <message type="gz.msgs.Param" topic="/vrx/wavefield/parameters"
@@ -281,7 +281,7 @@ $ cp <YOUR_VRX_INSTALLATION>/src/vrx/vrx_gz/worlds/sydney_regatta.sdf sydney_reg
 
 打开创建的 `sydney_regatta_custom.sdf` 文件，并添加想要的组件。比如，在 </world> 标签前插入以下代码，添加一个避障的浮标:
 
-```bash
+```xml
 <model name="navigation_buoy">
   <pose>10 5 0 0 0 0</pose>
   <include>
@@ -323,7 +323,7 @@ ros2 launch vrx_gazebo rviz.launch.py
 
 如果想要启动自己配置的RViz文件，可以将配置文件放在 `<YOUR_VRX_INSTALLATION>/install/share/vrx_gazebo/config/` 下，并修改启动脚本 `rviz.launch.py` ，改为自己配置的文件名：
 
-```bash
+```python
 rvz = Node(
       package='rviz2',
       namespace='',
@@ -376,7 +376,7 @@ ros2 launch vrx_gz competition.launch.py world:=sydney_regatta urdf:=`pwd`/wamv_
 
 在之前创建的推进器配置文件中，参照以下内容修改文件：
 
-```bash
+```yaml
 engine:
   - prefix: "left"  # 左侧推进器
     position: "-2.373776 1.027135 0.318237"  # XYZ坐标(m)
@@ -408,7 +408,7 @@ ros2 launch vrx_gazebo generate_wamv.launch.py \
 
 相同地，修改 `example_component_config.yaml` :
 
-```bash
+```yaml
 wamv_camera:
     - name: front_left_camera
       visualize: False
@@ -554,7 +554,7 @@ WAM-V无人艇的行为由一组Gazebo插件控制，其中水动力特性和推
   - `x_u` : 船舶阻力系数中的线性项系数(单位: kg/s)
   - `max_velocity_mps` : 最大速度(单位: 米/秒)
 
-```bash
+```xml
 
 ```
 
