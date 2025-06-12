@@ -35,6 +35,8 @@ vrx v2.4.1
 sudo apt install python3-sdformat14 ros-jazzy-xacro
 ```
 
+<br>
+
 ### 二、安装VRX
 
 1.创建colcon工作空间并克隆VRX仓库
@@ -84,11 +86,13 @@ ros2 launch vrx_gz competition.launch.py world:=sydney_regatta
 
 
 ---
-
+<br>
 
 ## VRX环境基础操作指引
 
 参考官方文档 [<u>Getting Around the VRX Environment</u>](https://github.com/osrf/vrx/wiki/getting_around_tutorial)
+
+<br>
 
 ### 一、WAM-V基础操纵
 
@@ -169,6 +173,8 @@ jstest-gtk
 ```
 
 3*.整体控制小船的运动，可以参考另一篇文章 `/my_wamv/mywamv_inverse_kinematic.py` 脚本中的做法。
+
+<br>
 
 ### 二、创建和修改仿真环境
 
@@ -311,6 +317,8 @@ ros2 launch vrx_gz competition.launch.py world:=sydney_regatta_custom
 
 关于VRX如何对这些环境因素进行仿真，以及组件的具体细节，可以查看 [WAMV参数配置](#五WAMV参数配置)
 
+<br>
+
 ### 三、RViz仿真可视化
 官方提供了为WAM-V配置的RViz文件和启动脚本，参考 [rviz.launch.py](./vrx_ws/install/share/vrx_gazebo/launch/rviz.launch.py) 。先启动gazebo并运行仿真环境：
 
@@ -341,6 +349,7 @@ rvz = Node(
 
 修改示例可参考另一篇文章中针对固定视角的调整。
 
+<br>
 
 ### 四、自定义WAM-V推进器与组件
 
@@ -488,6 +497,7 @@ ros2 launch vrx_gazebo generate_wamv.launch.py component_yaml:=`pwd`/example_com
 
 ![自定义的WAMV模型](picture/VRX_full_WAMV.png)
 
+<br>
 
 ### *五、WAMV参数配置
 
