@@ -21,7 +21,7 @@ vrx v2.4.1
 
 ### 一、安装基础环境
 
-1.按照官方文档安装*ROS 2 Jazzy* 和 *Gazebo Harmonic*:
+1.按照官方文档安装 *ROS 2 Jazzy* 和 *Gazebo Harmonic*:
 
 - [<u>ROS 2 Jazzy</u>](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html)
 - [<u>Gazebo Harmonic</u>](https://gazebosim.org/docs/harmonic/install_ubuntu/)
@@ -401,6 +401,89 @@ ros2 launch vrx_gazebo generate_wamv.launch.py \
 这会生成三个"T"字型分布的推进器，如图所示：
 
 ![带推进器的WAMV模型](picture/VRX_thruster_WAMV.png)
+
+
+3.自定义组件配置：
+
+相同地，修改 `example_component_config.yaml` :
+
+```bash
+wamv_camera:
+    - name: front_left_camera
+      visualize: False
+      x: 0.75
+      y: 0.1
+      z: 1.5
+      R: 0.0
+      P: ${radians(15)}
+      Y: 0.0
+      post_Y: 0.0
+    - name: front_right_camera
+      visualize: False
+      x: 0.75
+      y: -0.1
+      z: 1.5
+      R: 0.0
+      P: ${radians(15)}
+      Y: 0.0
+      post_Y: 0.0
+    - name: far_left_camera
+      visualize: False
+      x: 0.75
+      y: 0.3
+      z: 1.5
+      R: 0.0
+      P: ${radians(15)}
+      Y: 0.0
+      post_Y: 0.0
+wamv_gps:
+    - name: gps_wamv
+      x: -0.85
+      y: 0.0
+      z: 1.3
+      R: 0.0
+      P: 0.0
+      Y: 0.0
+wamv_imu:
+    - name: imu_wamv
+      x: 0.3
+      y: -0.2
+      z: 1.3
+      R: 0.0
+      P: 0.0
+      Y: 0.0
+lidar:
+    - name: lidar_wamv
+      type: 16_beam
+      x: 0.7
+      y: 0.0
+      z: 1.8
+      R: 0.0
+      P: ${radians(8)}
+      Y: 0.0
+      post_Y: 0.0
+wamv_ball_shooter:
+    - name: ball_shooter
+      x: 0.55 
+      y: -0.3 
+      z: 1.3
+      pitch: ${radians(-20)}
+      yaw: 0.0
+wamv_pinger:
+    - sensor_name: receiver
+      position: 1.0 0 -1.0
+```
+
+然后，生成URDF文件：
+
+```bash
+ros2 launch vrx_gazebo generate_wamv.launch.py component_yaml:=`pwd`/example_component_config.yaml thruster_yaml:=`pwd`/example_thruster_config.yaml wamv_target:=`pwd`/wamv_target.urdf wamv_locked:=False
+```
+
+这将生成一个与默认WAM-V拥有相同组件的模型，仅调整了组件的位置。
+
+![自定义的WAMV模型](picture/VRX_full_WAMV.png)
+
 
 
 ## VRX各组件的具体定义
