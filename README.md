@@ -342,6 +342,34 @@ rvz = Node(
 
 VRX提供了简易的自定义WAM-V配置和URDF文件生成方法。通过编写推进器YAML配置文件和组件YAML配置文件，可以运行脚本自动生成包含指定推进器和组件的自定义WAM-V URDF文件。参考 [Customizing the WAM-V (Beginner)](https://github.com/osrf/vrx/wiki/customizing_wamv_beginner_tutorial)
 
+1.创建空的WAM-V模型
+
+首先，我们需要创建一个基础的WAM-V模型以便后续添加组件和推进器。创建目录并创建两个空白配置文件：
+
+```bash
+mkdir ~/my_wamv
+cd ~/my_wamv
+touch empty_thruster_config.yaml  # 推进器配置文件
+touch empty_component_config.yaml  # 组件配置文件
+```
+
+使用VRX自带的生成脚本 `generate_wamv.launch.py` 生成新的URDF模型：
+
+```bash
+ros2 launch vrx_gazebo generate_wamv.launch.py \
+    component_yaml:=`pwd`/empty_component_config.yaml \
+    thruster_yaml:=`pwd`/empty_thruster_config.yaml \
+    wamv_target:=`pwd`/wamv_target.urdf \
+    wamv_locked:=False
+```
+
+打开生成的URDF文件，验证生成的WAM-V模型。应该看到一个没有推进器和任何组件的模型。
+
+```bash
+ros2 launch vrx_gz competition.launch.py world:=sydney_regatta urdf:=`pwd`/wamv_target.urdf
+```
+
+
 
 
 
