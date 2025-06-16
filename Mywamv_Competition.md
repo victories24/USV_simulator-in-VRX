@@ -79,6 +79,13 @@ F_{2,y}^* = \dfrac{F_y}{2}
 \end{cases}
 ```
 
+进而推得每个推进器的推力大小和方向：
+
+```math
+F_i = \sqrt{F_{i,x}^2 + F_{i,y}^2} \quad (i=1,2)
+\theta_i = \arctan\left(\frac{F_{i,y}}{F_{i,x}}\right) \quad (i=1,2)
+```
+
 
 
 ## station_keeping
