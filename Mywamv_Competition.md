@@ -48,7 +48,7 @@ V_y \\
 F_x \\
 F_y \\
 M
-\end{bmatrix} \\
+\end{bmatrix} 
 ```
 
 ```math
