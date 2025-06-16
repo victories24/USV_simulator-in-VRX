@@ -53,6 +53,22 @@ M
 \boldsymbol{M}\dot{\boldsymbol{\nu}} + \boldsymbol{C}(\boldsymbol{\nu})\boldsymbol{\nu} + \boldsymbol{D}\boldsymbol{\nu} = \boldsymbol{\tau}
 ```
 
+```math
+\begin{aligned}
+\boldsymbol{\nu} &= \begin{bmatrix} 
+V_x \\ 
+V_y \\ 
+\omega_z 
+\end{bmatrix}, & 
+\boldsymbol{\tau} &= \begin{bmatrix} 
+F_x \\ 
+F_y \\ 
+M_z 
+\end{bmatrix} \\[1em]
+\boldsymbol{M}\dot{\boldsymbol{\nu}} &+ \boldsymbol{C}(\boldsymbol{\nu})\boldsymbol{\nu} + \boldsymbol{D}\boldsymbol{\nu} = \boldsymbol{\tau}
+\end{aligned}
+```
+
 $$
 \boldsymbol{\nu} = \begin{bmatrix} 
 V_x \\ 
