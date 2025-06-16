@@ -71,13 +71,11 @@ y_1 = -y_2 = y_{\text{offset}} \\
 
 <br>最终求得解析解为：
 ```math
-F_{1,x}^* = \frac{F_x}{2} - \frac{M y_{\text{offset}}}{2(x_{\text{offset}}^2 + y_{\text{offset}}^2)}
-\quad \text{(其余分量同理)}
 \begin{cases}
-F_{1x} = \dfrac{F_x}{2} - \dfrac{x}{2y}F_y - \dfrac{M_z}{2y} \\[10pt]
-F_{1y} = \dfrac{F_y}{2} \\[10pt]
-F_{2x} = \dfrac{F_x}{2} + \dfrac{x}{2y}F_y + \dfrac{M_z}{2y} \\[10pt]
-F_{2y} = \dfrac{F_y}{2}
+F_{1x}^* = \dfrac{F_x}{2} - \dfrac{x}{2y}F_y - \dfrac{M_z}{2y} \\[10pt]
+F_{1y}^* = \dfrac{F_y}{2} \\[10pt]
+F_{2x}^* = \dfrac{F_x}{2} + \dfrac{x}{2y}F_y + \dfrac{M_z}{2y} \\[10pt]
+F_{2y}^* = \dfrac{F_y}{2}
 \end{cases}
 ```
 
