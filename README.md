@@ -13,7 +13,7 @@ vrx v2.4.1
 
 具体的项目实现细节分以下文档进行陈述：
 
-- [VRX_Tutorial](./VRX_Tutorial.md)
-- [Mywamv_Competition.md](./Mywamv_Competition.md)
+- VRX仿真环境教学： [VRX_Tutorial](./VRX_Tutorial.md)
+- WAM-V小船运动控制项目详解： [Mywamv_Competition.md](./Mywamv_Competition.md)
 
 
