@@ -118,7 +118,7 @@ F_i = \sqrt{F_{i,x}^2 + F_{i,y}^2} \quad (i=1,2) \\
 
 ### 二、逆运动学控制算法实现
 
-参照上文提供的逆运动学算法，可以实现
+参照上文提供的逆运动学算法，本篇用python实现了无人船的逆运动学控制代码，参考 [mywamv_inverse_dynamics.py](./my_wamv/mywamv_inverse_dynamics.py)
 
 1. 输入与输出
 
