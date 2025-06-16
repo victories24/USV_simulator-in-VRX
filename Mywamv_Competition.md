@@ -30,6 +30,17 @@ F_{2,y} = F_2 \cdot \sin\theta_2
 
 其中， $$F_1$$ 、 $$F_2$$ 分别为推进器推力； $$\theta_1$$ 、 $$\theta_2$$ 分别为推进器偏角。
 
+参照以下公式建立动力学方程：
+
+```math
+\begin{cases}
+F_x = F_1 \cdot \cos\theta_1 \\
+F_{1,y} = F_1 \cdot \sin\theta_1 \\
+F_{2,x} = F_2 \cdot \cos\theta_2 \\
+F_{2,y} = F_2 \cdot \sin\theta_2
+\end{cases}
+```
+
 
 
 
