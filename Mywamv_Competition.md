@@ -122,15 +122,50 @@ F_i = \sqrt{F_{i,x}^2 + F_{i,y}^2} \quad (i=1,2) \\
 
 1. 输入与输出
 
-输入为ROS `Twist` 消息 `/wamv/cmd_vel`，而输出为两个推进器的推力和角度topic，参考 [VRX教程]()
+输入为ROS `Twist` 消息 `/wamv/cmd_vel`，而输出为两个推进器的推力和角度topic，参考 [VRX教程](./VRX_Tutorial.md)
 
+```python
+import rclpy
+from geometry_msgs.msg import Twist
+from std_msgs.msg import Float64
 
+# 订阅速度指令话题
+self.cmd_vel_sub = self.create_subscription(
+    Twist,
+    '/wamv/cmd_vel',
+    self.inverse_kinematics_callback,
+    10
+)
+
+# 创建推进器指令发布者
+self.left_thrust_pub = self.create_publisher(
+    Float64,
+    '/wamv/thrusters/left/thrust',
+    10
+)
+self.right_thrust_pub = self.create_publisher(
+    Float64,
+    '/wamv/thrusters/right/thrust',
+    10
+)
+self.left_pos_pub = self.create_publisher(
+    Float64,
+    '/wamv/thrusters/left/pos',
+    10
+)
+self.right_pos_pub = self.create_publisher(
+    Float64,
+    '/wamv/thrusters/right/pos',
+    10
+)
+
+```
 
 2. twist到f、m转换
 
 3. 计算f
 
-*4. 推力限制 
+*4. 推力限制 角度约束
 
 
 
