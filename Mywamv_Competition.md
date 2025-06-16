@@ -36,7 +36,7 @@ M = \sum_{i=1}^2 (x_i F_{i,y} - y_i F_{i,x})
 
 <br>其中， $$F_x$$ 、 $$F_y$$ 分别为小船在x、y方向受到两推进器的力； $$M$$ 为小船的转矩。
 
-在输入期望的运动速度指令（包含角速度与线速度）后，可以将 $$F_x$$ 、 $$F_y$$ 和 $$M$$ 看作已知量， $$F_{1,x}$$ 、 $$F_{1,y}$$ 、 $$F_{2,x}$$ 、 $$F_{2,y}$$ 为未知量，列出矩阵方程：
+在输入期望的运动速度指令（包含角速度与线速度）后，可以求出所需施加的推力和转矩：
 
 ```math
 \boldsymbol{\nu} = \begin{bmatrix}
@@ -51,6 +51,8 @@ M
 \end{bmatrix}
 \boldsymbol{M}\dot{\boldsymbol{\nu}} + \boldsymbol{C}(\boldsymbol{\nu})\boldsymbol{\nu} + \boldsymbol{D}\boldsymbol{\nu} = \boldsymbol{\tau}
 ```
+
+<br>将 $$F_x$$ 、 $$F_y$$ 和 $$M$$ 看作已知量， $$F_{1,x}$$ 、 $$F_{1,y}$$ 、 $$F_{2,x}$$ 、 $$F_{2,y}$$ 为未知量，列出矩阵方程：
 
 ```math
 \begin{bmatrix}
