@@ -172,7 +172,7 @@ Fy = v_y_gain * msg.linear.y
 Mz = w_z_gain * msg.angular.z
 ```
 
-如果想要遵从方程准确计算合力与转矩，$\boldsymbol{M}$ 、 $\boldsymbol{C}(\boldsymbol{\nu})$ 和 $\boldsymbol{D}$ 的数据可以在VRX阻力插件 `libSimpleHydrodynamics.so` 中找到。
+如果想要遵从方程准确计算合力与转矩， $\boldsymbol{M}$ 、 $\boldsymbol{C}(\boldsymbol{\nu})$ 和 $\boldsymbol{D}$ 的数据可以在VRX阻力插件 `libSimpleHydrodynamics.so` 中找到。
 
 3. 计算推进器推力与角度
 
