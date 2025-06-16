@@ -125,10 +125,6 @@ F_i = \sqrt{F_{i,x}^2 + F_{i,y}^2} \quad (i=1,2) \\
 输入为ROS `Twist` 消息 `/wamv/cmd_vel`，而输出为两个推进器的推力和角度topic，参考 [VRX教程](./VRX_Tutorial.md)
 
 ```python
-import rclpy
-from geometry_msgs.msg import Twist
-from std_msgs.msg import Float64
-
 # 订阅速度指令话题
 self.cmd_vel_sub = self.create_subscription(
     Twist,
@@ -158,7 +154,6 @@ self.right_pos_pub = self.create_publisher(
     '/wamv/thrusters/right/pos',
     10
 )
-
 ```
 
 2. twist到f、m转换
