@@ -54,7 +54,7 @@ M = \sum_{i=1}^2 (x_i F_{i,y} - y_i F_{i,x})
 F_{1,x} \\
 F_{1,y} \\
 F_{2,x} \\
-F_{2,y} \\
+F_{2,y} 
 \end{bmatrix}
 =
 \begin{bmatrix}
