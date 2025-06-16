@@ -20,9 +20,10 @@
 对一个双推进器的小船来说，每个推进器对小船施加的力可以沿x、y轴方向分解：
 
 ```math
-F_x = F_{1x} + F_{2x} \\
-F_y = F_{1y} + F_{2y} \\
-M_z = (F_{1y}l_x - F_{1x}l_y) + (F_{2y}r_x - F_{2x}r_y)
+\begin{cases}
+F_{total\_x} = T_1 \cos\theta_1 + T_2 \cos\theta_2 \\
+F_{total\_y} = T_1 \sin\theta_1 + T_2 \sin\theta_2 \\
+\tau_{total} = (T_1 \sin\theta_1) l_x - (T_1 \cos\theta_1) l_y + (T_2 \sin\theta_2) r_x - (T_2 \cos\theta_2) r_y
 \end{cases}
 ```
 
