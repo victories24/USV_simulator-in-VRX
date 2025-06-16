@@ -77,6 +77,15 @@ y_1 = -y_2 = y_{\text{offset}} \\
 \end{cases}
 ```
 
+**最小功率解**：
+```math
+\mathbf{F}^* = \argmin_{\mathbf{A}\mathbf{F}=\mathbf{b}} \|\mathbf{F}\|_2 = \mathbf{A}^+ \mathbf{b}
+```
+解析解为：
+```math
+F_{1,x}^* = \frac{F_x}{2} - \frac{M y_{\text{offset}}}{2(x_{\text{offset}}^2 + y_{\text{offset}}^2)}
+\quad \text{(其余分量同理)}
+```
 
 
 
