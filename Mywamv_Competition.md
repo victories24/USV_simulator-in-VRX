@@ -46,13 +46,15 @@ M = \sum_{i=1}^2 (x_i F_{i,y} - y_i F_{i,x})
 
 ```math
 \begin{bmatrix}
-\cos\theta_1 & \cos\theta_2 \\
-\sin\theta_1 & \sin\theta_2 \\
-(y_2 \sin\theta_1 - x_1 \cos\theta_1) & (y_2 \sin\theta_2 - x_2 \cos\theta_2)
+1 & 0 & 1 & 0 \\
+0 & 1 & 0 & 1 \\
+-y_1 & x_1 & -y_2 & x_2 
 \end{bmatrix}
 \begin{bmatrix}
-F_1 \\
-F_2
+F_{1,x} \\
+F_{1,y} \\
+F_{2,x} \\
+F_{2,y} \\
 \end{bmatrix}
 =
 \begin{bmatrix}
