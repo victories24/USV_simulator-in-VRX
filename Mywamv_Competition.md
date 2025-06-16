@@ -49,6 +49,19 @@ F_{total\_y} = T_1 \sin\theta_1 + T_2 \sin\theta_2 \\
 
 ```
 
+```latex
+\usetikzlibrary{arrows.meta}
+\begin{tikzpicture}[scale=0.8]
+    % 坐标轴
+    \draw[->, thick] (-1,0) -- (6,0) node[right]{$x$};
+    \draw[->, thick] (0,-1) -- (0,4) node[above]{$y$};
+    % 网格线
+    \draw[gray!30] (0,0) grid (5,3);
+    % 坐标点
+    \filldraw (2,3) circle (2pt) node[above right]{$(x_1,y_1)$};
+    \filldraw (5,1) circle (2pt) node[below right]{$(x_2,y_2)$};
+\end{tikzpicture}
+```
 
 
 
