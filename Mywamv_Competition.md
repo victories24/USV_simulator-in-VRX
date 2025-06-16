@@ -82,11 +82,13 @@ F_{2,y}^* = \dfrac{F_y}{2}
 进而推得每个推进器的推力大小和方向：
 
 ```math
+\begin{aligned}
 F_i = \sqrt{F_{i,x}^2 + F_{i,y}^2} \quad (i=1,2) \\
 \theta_i = \arctan\left(\frac{F_{i,y}}{F_{i,x}}\right) \quad (i=1,2)
+\end{aligned}
 ```
 
-
+<br>至此，我们完成了从输入的运动速度指令 $$V_x$$ 、 $$V_y$$ 、$$W_z$$ 到输出推进器推力和角度 $$F_i$$ 、 $$\theta_i$$ 的理论推导过程。
 
 ## station_keeping
 ## way_finding
