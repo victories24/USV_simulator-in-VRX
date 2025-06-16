@@ -61,14 +61,6 @@ M
 <br>并添加约束：已知两推进器以x轴对称分布；求最小二范数解以保证最小功率消耗。
 
 ```math
-\begin{cases}
-x_1 = x_2 = -|x_offset| \\
-y_1 = -y_2 = |y_offset| \\
-
-
-```
-
-```math
 \quad \text{s.t.} \quad
 \begin{cases}
 x_1 = x_2 = -x_{\text{offset}} \\
@@ -77,14 +69,16 @@ y_1 = -y_2 = y_{\text{offset}} \\
 \end{cases}
 ```
 
-**最小功率解**：
-```math
-\mathbf{F}^* = \argmin_{\mathbf{A}\mathbf{F}=\mathbf{b}} \|\mathbf{F}\|_2 = \mathbf{A}^+ \mathbf{b}
-```
-解析解为：
+<br>最终求得解析解为：
 ```math
 F_{1,x}^* = \frac{F_x}{2} - \frac{M y_{\text{offset}}}{2(x_{\text{offset}}^2 + y_{\text{offset}}^2)}
 \quad \text{(其余分量同理)}
+\begin{cases}
+F_{1x} = \dfrac{F_x}{2} - \dfrac{x}{2y}F_y - \dfrac{M_z}{2y} \\[10pt]
+F_{1y} = \dfrac{F_y}{2} \\[10pt]
+F_{2x} = \dfrac{F_x}{2} + \dfrac{x}{2y}F_y + \dfrac{M_z}{2y} \\[10pt]
+F_{2y} = \dfrac{F_y}{2}
+\end{cases}
 ```
 
 
