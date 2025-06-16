@@ -40,7 +40,13 @@ M = (x_1 F_{1,y} - y_1 F_{1,x}) + (x_2 F_{2,y} - y_2 F_{2,x})
 \end{cases}
 ```
 
-
+```math
+\begin{cases}
+F_x = \sum_{i=1}^2 F_{i,x} = F_1 \cos\theta_1 + F_2 \cos\theta_2 \\[8pt]
+F_y = \sum_{i=1}^2 F_{i,y} = F_1 \sin\theta_1 + F_2 \sin\theta_2 \\[8pt]
+M = \sum_{i=1}^2 (x_i F_{i,y} - y_i F_{i,x}) 
+\end{cases}
+```
 
 
 
