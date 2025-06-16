@@ -53,6 +53,24 @@ M
 \boldsymbol{M}\dot{\boldsymbol{\nu}} + \boldsymbol{C}(\boldsymbol{\nu})\boldsymbol{\nu} + \boldsymbol{D}\boldsymbol{\nu} = \boldsymbol{\tau}
 ```
 
+$$
+\boldsymbol{\nu} = \begin{bmatrix} 
+V_x \\ 
+V_y \\ 
+\omega_z 
+\end{bmatrix}, \quad 
+\boldsymbol{\tau} = \begin{bmatrix} 
+F_x \\ 
+F_y \\ 
+M 
+\end{bmatrix}
+$$
+
+$$
+\boldsymbol{M}\dot{\boldsymbol{\nu}} + \boldsymbol{C}(\boldsymbol{\nu})\boldsymbol{\nu} + \boldsymbol{D}\boldsymbol{\nu} = \boldsymbol{\tau}
+$$
+
+
 <br>其中：
 - $\boldsymbol{M}$	：系统惯性矩阵（刚体+附加质量）
 - $\boldsymbol{C}(\boldsymbol{\nu})$	：科里奥利-向心力矩阵
