@@ -22,6 +22,9 @@
 ```math
 \begin{cases}
 F_{1,x} = F_1 \cdot \cos\theta_1 \\
+F_{1,y} = F_1 \cdot \sin\theta_1 \\
+F_{2,x} = F_2 \cdot \cos\theta_2 \\
+F_{2,y} = F_2 \cdot \sin\theta_2 \\
 F_{total\_y} = T_1 \sin\theta_1 + T_2 \sin\theta_2 \\
 \tau_{total} = (T_1 \sin\theta_1) l_x - (T_1 \cos\theta_1) l_y + (T_2 \sin\theta_2) r_x - (T_2 \cos\theta_2) r_y
 \end{cases}
