@@ -21,7 +21,7 @@
 
 ```math
 \begin{cases}
-F_{total\_x} = T_1 \cos\theta_1 + T_2 \cos\theta_2 \\
+F_{total_x} = T_1 \cos\theta_1 + T_2 \cos\theta_2 \\
 F_{total\_y} = T_1 \sin\theta_1 + T_2 \sin\theta_2 \\
 \tau_{total} = (T_1 \sin\theta_1) l_x - (T_1 \cos\theta_1) l_y + (T_2 \sin\theta_2) r_x - (T_2 \cos\theta_2) r_y
 \end{cases}
