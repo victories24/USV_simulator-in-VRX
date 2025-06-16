@@ -36,7 +36,7 @@ F_{2,y} = F_2 \cdot \sin\theta_2
 \begin{cases}
 F_x = F_{1,x} + F_{2,x} = F_1 \cdot \cos\theta_1 + F_2 \cdot \cos\theta_2 \\
 F_y = F_{1,y} + F_{2,y} = F_1 \cdot \sin\theta_1 + F_2 \cdot \sin\theta_2 \\
-M = x_1 F_{1,y} - y_1 F_{1,x}
+M = (x_1 F_{1,y} - y_1 F_{1,x}) + (x_2 F_{2,y} - y_2 F_{2,x})
 \end{cases}
 ```
 
