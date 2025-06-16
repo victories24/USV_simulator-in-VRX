@@ -174,9 +174,28 @@ Mz = w_z_gain * msg.angular.z
 
 如果想要遵从方程准确计算合力与转矩，$\boldsymbol{M}$ 、 $\boldsymbol{C}(\boldsymbol{\nu})$ 和 $\boldsymbol{D}$ 的数据可以在VRX阻力插件 `libSimpleHydrodynamics.so` 中找到。
 
-3. 计算推进器
+3. 计算推进器推力与角度
 
-*4. 推力限制 角度约束
+参照方程计算推力与角度，同时还应注意旋转180度时转换为负推力，将角度限制在 $[-90^\circ, 90^\circ]$ 之间：
+
+```python
+# 计算左推进器分力 (F1x, F1y)，设左右点坐标为(-x,y)(-x,-y)
+x = abs(left_x)
+y = abs(left_y)
+F1x = 0.5 * Fx - x / (2 * y) * Fy - Mz / (2 * y) 
+F1y = 0.5 * Fy
+
+# 计算右推进器分力 (F2x, F2y)
+F2x = 0.5 * Fx + x / (2 * y) * Fy + Mz / (2 * y)
+F2y = 0.5 * Fy
+
+# 计算每个推进器的总推力和角度
+left_thrust, left_angle = calculate_thrust_and_angle(F1x, F1y)
+right_thrust, right_angle = calculate_thrust_and_angle(F2x, F2y)
+```
+
+
+*4. 推力限制 角度变化率
 
 
 
