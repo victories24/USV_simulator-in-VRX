@@ -46,12 +46,6 @@ M = \sum_{i=1}^2 (x_i F_{i,y} - y_i F_{i,x})
 
 ```math
 \begin{bmatrix}
-F_x \\
-F_y \\
-M
-\end{bmatrix}
-=
-\begin{bmatrix}
 \cos\theta_1 & \cos\theta_2 \\
 \sin\theta_1 & \sin\theta_2 \\
 (y_2 \sin\theta_1 - x_1 \cos\theta_1) & (y_2 \sin\theta_2 - x_2 \cos\theta_2)
@@ -59,6 +53,12 @@ M
 \begin{bmatrix}
 F_1 \\
 F_2
+\end{bmatrix}
+=
+\begin{bmatrix}
+F_x \\
+F_y \\
+M
 \end{bmatrix}
 ```
 
@@ -71,13 +71,7 @@ F_{total\_y} = T_1 \sin\theta_1 + T_2 \sin\theta_2 \\
 
 ```
 
-```mermaid
-graph LR
-    A[坐标系] --> B["x轴 →"]
-    A --> C["y轴 ↑"]
-    D["• (x₁,y₁)"] -.-|x₁=2<br>y₁=3| E
-    F["• (x₂,y₂)"] -.-|x₂=5<br>y₂=1| G
-```
+
 
 
 
