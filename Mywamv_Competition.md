@@ -48,10 +48,8 @@ V_y \\
 F_x \\
 F_y \\
 M
-\end{bmatrix}
-\]
+\end{bmatrix} \\
 
-\[
 \boldsymbol{M}\dot{\boldsymbol{\nu}} + \boldsymbol{C}(\boldsymbol{\nu})\boldsymbol{\nu} + \boldsymbol{D}\boldsymbol{\nu} = \boldsymbol{\tau}
 ```
 
