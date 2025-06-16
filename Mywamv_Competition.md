@@ -39,6 +39,19 @@ M = \sum_{i=1}^2 (x_i F_{i,y} - y_i F_{i,x})
 在输入期望的运动速度指令（包含角速度与线速度）后，可以将 $$F_x$$ 、 $$F_y$$ 和 $$M$$ 看作已知量， $$F_{1,x}$$ 、 $$F_{1,y}$$ 、 $$F_{2,x}$$ 、 $$F_{2,y}$$ 为未知量，列出矩阵方程：
 
 ```math
+\boldsymbol{\nu} = \begin{bmatrix}
+V_x \\
+V_y \\
+\omega_z
+\end{bmatrix}, \quad
+\boldsymbol{\tau} = \begin{bmatrix}
+F_x \\
+F_y \\
+M
+\end{bmatrix}
+```
+
+```math
 \begin{bmatrix}
 1 & 0 & 1 & 0 \\
 0 & 1 & 0 & 1 \\
@@ -88,7 +101,10 @@ F_i = \sqrt{F_{i,x}^2 + F_{i,y}^2} \quad (i=1,2) \\
 \end{aligned}
 ```
 
-<br>至此，我们完成了从输入的运动速度指令 $$V_x$$ 、 $$V_y$$ 、$$W_z$$ 到输出推进器推力和角度 $$F_i$$ 、 $$\theta_i$$ 的理论推导过程。
+<br>至此，我们完成了从输入的运动速度指令 $$V_x$$ 、 $$V_y$$ 、$$\omega_z$$ 到输出推进器推力和角度 $$F_i$$ 、 $$\theta_i$$ 的理论推导过程。
+
+
+
 
 ## station_keeping
 ## way_finding
