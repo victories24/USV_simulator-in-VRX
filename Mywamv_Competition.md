@@ -49,9 +49,10 @@ F_x \\
 F_y \\
 M
 \end{bmatrix}
-\begin{aligned}
+\]
+
+\[
 \boldsymbol{M}\dot{\boldsymbol{\nu}} + \boldsymbol{C}(\boldsymbol{\nu})\boldsymbol{\nu} + \boldsymbol{D}\boldsymbol{\nu} = \boldsymbol{\tau}
-\end{aligned}
 ```
 
 <br>其中：
