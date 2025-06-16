@@ -49,25 +49,29 @@ F_x \\
 F_y \\
 M
 \end{bmatrix} \\
-
-\boldsymbol{M}\dot{\boldsymbol{\nu}} + \boldsymbol{C}(\boldsymbol{\nu})\boldsymbol{\nu} + \boldsymbol{D}\boldsymbol{\nu} = \boldsymbol{\tau}
 ```
 
 ```math
-\begin{aligned}
-\boldsymbol{\nu} &= \begin{bmatrix} 
+\boldsymbol{M}\dot{\boldsymbol{\nu}} + \boldsymbol{C}(\boldsymbol{\nu})\boldsymbol{\nu} + \boldsymbol{D}\boldsymbol{\nu} = \boldsymbol{\tau}
+```
+
+$$
+\boldsymbol{\nu} = \begin{bmatrix} 
 V_x \\ 
 V_y \\ 
 \omega_z 
-\end{bmatrix}, & 
-\boldsymbol{\tau} &= \begin{bmatrix} 
+\end{bmatrix}, \quad 
+\boldsymbol{\tau} = \begin{bmatrix} 
 F_x \\ 
 F_y \\ 
-M_z 
-\end{bmatrix} \\[1em]
-\boldsymbol{M}\dot{\boldsymbol{\nu}} &+ \boldsymbol{C}(\boldsymbol{\nu})\boldsymbol{\nu} + \boldsymbol{D}\boldsymbol{\nu} = \boldsymbol{\tau}
-\end{aligned}
-```
+M 
+\end{bmatrix}
+$$
+
+$$
+\boldsymbol{M}\dot{\boldsymbol{\nu}} + \boldsymbol{C}(\boldsymbol{\nu})\boldsymbol{\nu} + \boldsymbol{D}\boldsymbol{\nu} = \boldsymbol{\tau}
+$$
+
 
 
 <br>其中：
