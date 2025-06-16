@@ -156,7 +156,11 @@ self.right_pos_pub = self.create_publisher(
 )
 ```
 
-2. twist到f、m转换
+2. Twist消息到小船转矩的转换
+
+本代码将非线性动力学方程简化为线性关系，系数满足在范围内大致吻合。
+如果想要遵从方程准确计算合力与转矩，$\boldsymbol{M}$ 、 $\boldsymbol{C}(\boldsymbol{\nu})$ 和 $\boldsymbol{D}$ 的数据可以在阻力模型 
+   
 
 3. 计算f
 
