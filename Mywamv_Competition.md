@@ -1,4 +1,4 @@
-# WAM-V的运动与规划
+# WAM-V的运动控制与规划
 本片介绍了 `my_wamv` 中实现的小船自主运动，并在VRX提供的 [VRX Competition](https://github.com/osrf/vrx/wiki/vrx_2023-task_tutorials) 比赛任务中得到验证。
 
 本文将从逆运动学控制，姿态控制，路径跟踪等方面对 `my_wamv` 包实现的功能进行解析。参考本文的方法可以进一步开发在VRX环境下的小船控制算法。
@@ -122,9 +122,13 @@ F_i = \sqrt{F_{i,x}^2 + F_{i,y}^2} \quad (i=1,2) \\
 
 1. 输入与输出
 
-2. 转换
+输入为ROS `Twist` 消息 `/wamv/cmd_vel`，而输出为两个推进器的推力和角度topic，参考 [VRX教程]()
 
-3. 计算
+
+
+2. twist到f、m转换
+
+3. 计算f
 
 *4. 推力限制 
 
