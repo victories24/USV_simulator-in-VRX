@@ -158,11 +158,23 @@ self.right_pos_pub = self.create_publisher(
 
 2. Twist消息到小船转矩的转换
 
-本代码将非线性动力学方程简化为线性关系，系数满足在范围内大致吻合。
-如果想要遵从方程准确计算合力与转矩，$\boldsymbol{M}$ 、 $\boldsymbol{C}(\boldsymbol{\nu})$ 和 $\boldsymbol{D}$ 的数据可以在阻力模型 [wamv_gazebo_dynamics_plugin.xacro](./vrx_ws/install/share/wamv_gazebo/urdf/dynamics/wamv_gazebo_dynamics_plugin.xacro)
-   
+本代码将非线性动力学方程简化为线性关系，系数满足在范围内大致吻合：
 
-3. 计算f
+```python
+# 限制给予的线速度和角速度，保证不会因为过大的输入导致输出异常(前进或转向推力被覆盖)
+msg.linear.x = constrain(msg.linear.x, -max_linear, max_linear)
+msg.linear.y = constrain(msg.linear.y, -max_linear, max_linear)
+msg.angular.z = constrain(msg.angular.z, -max_angular, max_angular)
+
+# 计算期望的总力和力矩
+Fx = v_x_gain * msg.linear.x
+Fy = v_y_gain * msg.linear.y
+Mz = w_z_gain * msg.angular.z
+```
+
+如果想要遵从方程准确计算合力与转矩，$\boldsymbol{M}$ 、 $\boldsymbol{C}(\boldsymbol{\nu})$ 和 $\boldsymbol{D}$ 的数据可以在VRX阻力插件 `libSimpleHydrodynamics.so` 中找到。
+
+3. 计算推进器
 
 *4. 推力限制 角度约束
 
