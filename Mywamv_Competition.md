@@ -5,12 +5,6 @@
 
 
 
-
-
-
-
-
-
 ## 逆运动学控制
 
 在VRX官方提供的教程中，WAM-V的操控需要在终端中一一发布左、右桨和舵的对应topic。在实现更进一步的功能之前，我们需要将小船的底层控制整合起来。将期望的运动速度指令转换为两个推进器的推力和角度指令，以便于高层的控制算法专注于路径规划或运动控制策略，而不必关心底层推进器的具体实现细节。
@@ -64,16 +58,24 @@ M
 \end{bmatrix}
 ```
 
-
-
+<br>并添加约束：已知两推进器以x轴对称分布；求最小二范数解以保证最小功率消耗。
 
 ```math
-F_{total\_y} = T_1 \sin\theta_1 + T_2 \sin\theta_2 \\
-\tau_{total} = (T_1 \sin\theta_1) l_x - (T_1 \cos\theta_1) l_y + (T_2 \sin\theta_2) r_x - (T_2 \cos\theta_2) r_y
+\begin{cases}
+x_1 = x_2 = -|x_offset| \\
+y_1 = -y_2 = |y_offset| \\
+
 
 ```
 
-
+```math
+\quad \text{s.t.} \quad
+\begin{cases}
+x_1 = x_2 = -x_{\text{offset}} \\
+y_1 = -y_2 = y_{\text{offset}} \\
+\|F\|_2^2 = F_{1,x}^2 + F_{1,y}^2 + F_{2,x}^2 + F_{2,y}^2 \to \min
+\end{cases}
+```
 
 
 
