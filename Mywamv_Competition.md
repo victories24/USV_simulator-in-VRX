@@ -377,7 +377,7 @@ chmod +x mywamv_station_keeping.py
 
 查看小船是否保持位姿，以及根据稳态误差调节PID参数：
 
-
+![位姿控制任务实现](picture/mywamv_stationkeeping.png)
 
 ## way_finding
 
