@@ -162,7 +162,16 @@ ls /dev/input/
 jstest-gtk
 ```
 
-3*.整体控制小船的运动，可以参考另一篇文章 `/my_wamv/mywamv_inverse_kinematic.py` 脚本中的做法。
+*3. **键盘控制**
+
+笔者自己编写了一个键盘控制小船的脚本，参考 [keyboard_control_node.py](./my_wamv/mywamv_keyboard_control.py)
+
+将脚本保存在主页面，运行脚本。`w` `a` `s` `d` 控制推进器推力和方向，按 `q` 键退出。
+
+```bash
+chmod +x mywamv_keyboard_control.py
+./mywamv_keyboard_control.py
+```
 
 <br>
 
