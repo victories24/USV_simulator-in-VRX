@@ -233,6 +233,8 @@ VRX官方提供了位姿控制的任务场景，参考 [Station Keeping](https:/
 
 <br>
 
+本文采用PID控制的方法，通过ROS2节点实现了无人水面艇（USV）的位姿控制，参考 [mywamv_station_keeping.py](./my_wamv/mywamv_station_keeping.py) 。以下是核心逻辑的实现：
+
 1. **传感器与目标输入处理**
 
 - GPS数据：
@@ -271,8 +273,109 @@ def imu_callback(self, msg):
 
 - 目标位姿：
 
-        订阅VRX任务发布的 /vrx/stationkeeping/goal，解析目标位置（cmd_pos）和朝向（cmd_rot）。
+  订阅VRX任务发布的 `/vrx/stationkeeping/goal` ，解析目标位置 `cmd_pos` 和目标朝向 `cmd_rot` 。
 
+```python
+def goal_callback(self, msg):
+    """处理目标位置"""
+    x, y, _ = self.gps_to_enu(msg.pose.position.x, msg.pose.position.y)
+    self.cmd_pos = np.array([x, y])  # 存储ENU坐标系下的目标位置
+    self.cmd_rot = self.quaternion_to_yaw(msg.pose.orientation)  # 存储目标偏航角
+```
+
+2. **分层控制**
+
+根据与目标的距离 `distance` ，自动切换控制模式，实现快速接近与稳态调节。分层控制包含目标导航（Go-to-Goal）和定点保持（Station-Keeping）两种模式：
+
+```python
+if distance > self.goal_tol:
+    # Go-to-goal模式（远距离接近）：控制Vx和Wz
+    desired_heading = math.atan2(err_vec[1], err_vec[0])
+    heading_error = self.normalize_angle(desired_heading - self.cur_rot)
+    
+    cmd_vel.linear.x = np.clip(self.v_const * distance, -self.v_limit, self.v_limit)
+    cmd_vel.angular.z = self.pid_g2g.control(heading_error, t_now)
+else:
+    # Station-keeping模式
+    body_x = math.cos(self.cur_rot)
+    body_y = math.sin(self.cur_rot)
+    along_track = err_vec[0] * body_x + err_vec[1] * body_y
+    cross_track = -err_vec[0] * body_y + err_vec[1] * body_x
+
+    # 动态响应调整
+    adaptive_gain = min(1.0, distance / self.goal_tol)
+    along_track *= adaptive_gain
+    cross_track *= adaptive_gain
+
+    cmd_vel.linear.x = self.pid_sk_vx.control(along_track, t_now)
+    cmd_vel.linear.y = self.pid_sk_vy.control(cross_track, t_now)
+    cmd_vel.angular.z = self.pid_sk_wz.control(
+        self.normalize_angle(self.cmd_rot - self.cur_rot), t_now
+    )
+```
+
+3. **PID控制器设计**
+
+根据不同的要求调整PID参数。在导航模式中增大比例以强调快速响应，在定点保持阶段增大微分以抑制振荡。
+
+```python
+class PIDController:
+    def __init__(self, kP=1.0, kI=0.0, kD=0.0):
+        self.kP = kP         # 比例增益
+        self.kI = kI         # 积分增益
+        self.kD = kD         # 微分增益
+        self.err_int = 0.0   # 积分误差累积
+        self.err_prev = 0.0  # 上一次的误差值
+        self.t_prev = 0.0    # 上一次调用的时间戳
+
+    def control(self, err, t):
+        dt = t - self.t_prev
+        if dt <= 0:
+            return 0.0
+        
+        # 积分抗饱和（仅在小误差时启用）
+        if abs(err) < 2.0:
+            self.err_int += err * dt
+            self.err_int = np.clip(self.err_int, -10.0, 10.0)
+        
+        # 微分项
+        err_dif = (err - self.err_prev) / dt if dt > 0 else 0.0
+        
+        # PID输出
+        u = self.kP * err + self.kI * self.err_int + self.kD * err_dif
+        u = np.clip(u, -5.0, 5.0)  # 通用输出限制
+        
+        self.err_prev = err
+        self.t_prev = t
+        return u
+```
+
+4. **调试与验证**
+
+在完成脚本的搭建后，将脚本放在主目录下，运行仿真环境并验证控制效果。
+如果自定义了WAM-V配置，可以将路径修改为自定义URDF文件地址。
+
+```bash
+ros2 launch vrx_gz competition.launch.py world:=stationkeeping_task
+or
+ros2 launch vrx_gz competition.launch.py world:=stationkeeping_task urdf:=<your_pathto_wamv>
+```
+
+运行逆运动学脚本，同样放在主目录下：
+
+```bash
+chmod +x mywamv_inverse_kinematics.py
+./mywamv_inverse_kinematics.py
+```
+
+添加脚本路径，并运行脚本。
+
+```bash
+chmod +x mywamv_station_keeping.py
+./mywamv_station_keeping.py
+```
+
+查看小船是否保持位姿，以及根据稳态误差调节PID参数：
 
 
 
