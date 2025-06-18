@@ -74,15 +74,15 @@ source ~/vrx_ws/install/setup.bash
 ros2 launch vrx_gz competition.launch.py world:=sydney_regatta
 ```
 
-![VRX 仿真环境](picture/sydney_regatta.png)<br><br>
+![VRX 仿真环境](picture/sydney_regatta.png)<br>
 
 ---
+
+<br>
 
 ## VRX环境基础操作指引
 
 参考官方文档 [<u>Getting Around the VRX Environment</u>](https://github.com/osrf/vrx/wiki/getting_around_tutorial)
-
-<br>
 
 ### 一、WAM-V基础操纵
 
