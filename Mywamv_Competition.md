@@ -222,10 +222,26 @@ if dt > 0.0:  # 避免除以零
 
 <br>
 
-## station_keeping
-## way_finding
-## path_following
 
+
+## 位姿控制
+
+位姿控制是无人船的核心任务之一，在精确导航、抗干扰与稳定跟踪等方面具有重大作用。
+VRX官方提供了位姿控制的任务场景，参考 [Station Keeping](https://github.com/osrf/vrx/wiki/vrx_2023-stationkeeping_task) 。小船需完成从初始点到目标点的移动，并在指定点保持固定的位姿。
+
+
+
+
+
+
+## way_finding
+
+
+## path_following
+### 路径发布
+### 可视化
+### 理论
+### 实现
 
 
 
