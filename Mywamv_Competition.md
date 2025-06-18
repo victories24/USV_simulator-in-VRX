@@ -120,7 +120,7 @@ F_i = \sqrt{F_{i,x}^2 + F_{i,y}^2} \quad (i=1,2) \\
 
 参照上文提供的逆运动学算法，本篇用python实现了无人船的逆运动学控制代码，参考 [mywamv_inverse_kinematics.py](./my_wamv/mywamv_inverse_kinematics.py)
 
-1. 输入与输出
+1. **输入与输出**
 
 输入为ROS `Twist` 消息 `/wamv/cmd_vel`，而输出为两个推进器的推力和角度topic，参考 [VRX教程](./VRX_Tutorial.md)
 
@@ -156,7 +156,7 @@ self.right_pos_pub = self.create_publisher(
 )
 ```
 
-2. Twist消息到小船转矩的转换
+2. **Twist消息到小船转矩的转换**
 
 本代码将非线性动力学方程简化为线性关系，系数满足在范围内大致吻合：
 
@@ -174,7 +174,7 @@ Mz = w_z_gain * msg.angular.z
 
 如果想要遵从方程准确计算合力与转矩， $\boldsymbol{M}$ 、 $\boldsymbol{C}(\boldsymbol{\nu})$ 和 $\boldsymbol{D}$ 的数据可以在VRX阻力插件 `libSimpleHydrodynamics.so` 中找到。
 
-3. 计算推进器推力与角度
+3. **计算推进器推力与角度**
 
 参照方程计算推力与角度，同时还应注意旋转180度时转换为负推力，将角度限制在 $[-90^\circ, 90^\circ]$ 之间：
 
@@ -194,7 +194,7 @@ left_thrust, left_angle = calculate_thrust_and_angle(F1x, F1y)
 right_thrust, right_angle = calculate_thrust_and_angle(F2x, F2y)
 ```
 
-*4. 限制角度变化率
+*4. **限制角度变化率**
 
 在现实场景中，小船的舵并不能同仿真环境中一样瞬时到达指定角度，而是以一定的速率缓慢转动到该角度。因此，可以在控制代码中加入对角度变化率的限制，以更真实地模拟实际情况。
 根据需求增减这段代码：
