@@ -480,6 +480,30 @@ def publish_transforms(self):
     ......
 ```
 
+4. **调试与验证**
+
+启动仿真环境和逆运动学脚本（在上一个任务中已经设置过路径）
+
+```bash
+ros2 launch vrx_gz competition.launch.py world:=wayfinding_task
+```
+
+```bash
+./mywamv_inverse_kinematics.py
+```
+
+启动自动寻路控制脚本
+
+```bash
+chmod +x mywamv_wayfinding.py
+./mywamv_wayfinding.py
+```
+
+*（如配置RViz可视化）：启动RViz配置文件
+
+```bash
+ros2 launch vrx_gazebo rviz.launch.py 
+```
 
 ## path_following
 ### 路径发布
