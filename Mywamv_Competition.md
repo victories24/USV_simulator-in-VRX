@@ -229,7 +229,45 @@ if dt > 0.0:  # 避免除以零
 位姿控制是无人船的核心任务之一，在精确导航、抗干扰与稳定跟踪等方面具有重大作用。
 VRX官方提供了位姿控制的任务场景，参考 [Station Keeping](https://github.com/osrf/vrx/wiki/vrx_2023-stationkeeping_task) 。小船需完成从初始点到目标点的移动，并在指定点保持固定的位姿。
 
+![位姿控制](picture/VRX_stationkeeping.png)
 
+<br>
+
+1. **传感器与目标输入处理**
+
+- GPS数据：
+
+  利用GPS数据更新当前船体位置，将WGS84坐标（经纬度）转换为局部ENU坐标系（东-北-天），并补偿GPS天线与船体的偏移。
+
+```python
+def gps_to_enu(self, lat, lon, alt=0.0):
+    """WGS84转ENU坐标系"""
+    return pymap3d.geodetic2enu(lat, lon, alt, *self.origin)
+```
+
+<br>
+
+- IMU数据：
+
+  从四元数中提取偏航角（yaw），更新当前船体朝向 `cur_rot`。
+
+```python
+def quaternion_to_yaw(self, q):
+    """四元数转偏航角yaw"""
+    siny_cosp = 2 * (q.w * q.z + q.x * q.y)
+    cosy_cosp = 1 - 2 * (q.y * q.y + q.z * q.z)
+    return math.atan2(siny_cosp, cosy_cosp)
+
+def imu_callback(self, msg):
+    """处理IMU数据"""
+    self.cur_rot = self.quaternion_to_yaw(msg.orientation)
+```
+
+<br>
+
+- 目标位姿：
+
+        订阅VRX任务发布的 /vrx/stationkeeping/goal，解析目标位置（cmd_pos）和朝向（cmd_rot）。
 
 
 
