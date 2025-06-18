@@ -194,11 +194,31 @@ left_thrust, left_angle = calculate_thrust_and_angle(F1x, F1y)
 right_thrust, right_angle = calculate_thrust_and_angle(F2x, F2y)
 ```
 
+*4. 限制角度变化率
 
-*4. 推力限制 角度变化率
+在现实场景中，小船的舵并不能同仿真环境中一样瞬时到达指定角度，而是以一定的速率缓慢转动到该角度。因此，可以在控制代码中加入对角度变化率的限制，以更真实地模拟实际情况。
+根据需求增减这段代码：
 
+```python
+# 应用角速度限制（模拟实际桨匀速转向）
+current_time = self.get_clock().now()
+dt = (current_time - self.last_time).nanoseconds / 1e9
+self.last_time = current_time
 
-
+if dt > 0.0:  # 避免除以零
+    # 计算最大允许角度变化
+    max_delta_angle = max_angle_rate * dt
+    
+    # 限制左桨角度变化率
+    delta_left = left_angle - self.last_left_angle
+    if abs(delta_left) > max_delta_angle:
+        left_angle = self.last_left_angle + math.copysign(max_delta_angle, delta_left)
+    
+    # 限制右桨角度变化率
+    delta_right = right_angle - self.last_right_angle
+    if abs(delta_right) > max_delta_angle:
+        right_angle = self.last_right_angle + math.copysign(max_delta_angle, delta_right)
+```
 
 
 ## station_keeping
