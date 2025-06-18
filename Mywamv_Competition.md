@@ -237,15 +237,21 @@ VRX官方提供了位姿控制的任务场景，参考 [Station Keeping](https:/
 
 - GPS数据：
 
-  利用GPS数据更新当前船体位置，将WGS84坐标（经纬度）转换为局部ENU坐标系（东-北-天），并补偿GPS天线与船体的偏移。
+  利用GPS数据更新当前船体位置 `cur_pos` ，将WGS84坐标（经纬度）转换为局部ENU坐标系（东-北-天），并补偿GPS天线与船体的偏移。
 
 ```python
 def gps_to_enu(self, lat, lon, alt=0.0):
     """WGS84转ENU坐标系"""
     return pymap3d.geodetic2enu(lat, lon, alt, *self.origin)
-```
 
-<br>
+def gps_callback(self, msg):
+    """处理GPS数据"""
+    x, y, _ = self.gps_to_enu(msg.latitude, msg.longitude)
+    if self.cur_rot is not None:
+        x += self.gps_offset * math.cos(self.cur_rot)
+        y += self.gps_offset * math.sin(self.cur_rot)
+    self.cur_pos = np.array([x, y])
+```
 
 - IMU数据：
 
@@ -262,8 +268,6 @@ def imu_callback(self, msg):
     """处理IMU数据"""
     self.cur_rot = self.quaternion_to_yaw(msg.orientation)
 ```
-
-<br>
 
 - 目标位姿：
 
