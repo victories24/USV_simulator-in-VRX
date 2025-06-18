@@ -381,10 +381,104 @@ chmod +x mywamv_station_keeping.py
 
 <br>
 
-## way_finding
+## 自动寻路
 
+在完成位姿控制的基础上，可以进一步尝试操控小船依次通过多个路径点，并尽可能的匹配每个路径点的位置 `(x,y)` 与朝向 `\theta` 。VRX官方提供的任务环境参考 [Way Finding](https://github.com/osrf/vrx/wiki/vrx_2023-wayfinding_task))
 
+![自动寻路](picture/VRX_wayfinding.png)
 
+<br>
+
+本文沿用上文位姿控制的PID控制与分层控制策略，并针对多路径点进行改进，参考 [mywamv_station_keeping.py](./my_wamv/mywamv_station_keeping.py) 。重复部分如ROS信号的接受与发送不作赘述，以下是核心算法实现：
+
+1. **处理输入路径点**
+
+在自动寻路任务中，如果想要根据需要输入多个路径点序列，需要修改路径点的处理方法：
+
+```python
+def waypoint_callback(self, msg):
+    """处理路径点更新"""
+    if self.waypoint_lock and not self.allow_auto_updates:
+        self.get_logger().debug("路径点已锁定，忽略自动更新")
+        return
+        
+    # 安全检查
+    if not msg.poses:
+        self.get_logger().warn("收到空路径点消息，已忽略")
+        return
+        
+    for pose in msg.poses:
+        if not (-90 <= pose.position.x <= 90 and -180 <= pose.position.y <= 180):
+            self.get_logger().error(f"非法坐标值: lat={pose.position.x}, lon={pose.position.y}")
+            return
+
+    # 处理新路径点
+    self.enu_waypoints = []
+    for pose in msg.poses:
+        lat = pose.position.x
+        lon = pose.position.y
+        yaw = self.quaternion_to_yaw(pose.orientation)
+        x, y = self.gps_to_enu(lat, lon)
+        self.enu_waypoints.append([x, y, yaw])
+    
+    if self.enu_waypoints:
+        self.wp_index = 0
+        self.waypoint_lock = True  # 锁定新路径点
+        self.get_logger().info(
+            f"已更新 {len(self.enu_waypoints)} 个路径点 | "
+            f"第一个点: x={self.enu_waypoints[0][0]:.2f}, y={self.enu_waypoints[0][1]:.2f}")
+    else:
+        self.get_logger().warning("路径点转换后为空列表！")
+    self.waypoint_lock = True   # 接受一次数据后自动锁定
+```
+
+2. **分层控制与路径点切换**
+
+在接近模式中，为了防止小船达到目标角度后只进行平移，将横向速度输出指令设为零，只对前进方向的速度进行调节。控制小船朝着目标点方向行进，在距离小于阈值进入保持阶段时再进行角度的调节。
+
+```bash
+if distance > self.goal_tol:
+    # 接近模式
+    cmd_vel.linear.x = float(np.clip(self.v_const * along_err, -self.v_limit, self.v_limit))
+    desired_heading = math.atan2(err_vec[1], err_vec[0])
+    heading_err = self.normalize_angle(desired_heading - self.cur_rot)
+    cmd_vel.angular.z = float(self.pid_g2g.control(heading_err, t_now))
+else:
+    # 保持模式（精细控制）
+    adaptive_gain = min(1.0, distance / self.goal_tol)
+    cmd_vel.linear.x = float(self.pid_sk_vx.control(along_err * adaptive_gain, t_now))
+    cmd_vel.linear.y = float(self.pid_sk_vy.control(cross_err * adaptive_gain, t_now))
+    cmd_vel.angular.z = float(self.pid_sk_wz.control(
+        self.normalize_angle(target_yaw - self.cur_rot), t_now
+    ))
+```
+
+接近每个路径点时，用误差判断是否已经到达，并且切换到下一目标点。如果在仿真中发现小船调整过慢影响寻路连贯性，可以适当增加阈值放宽标准。
+
+```bash
+# 检查是否到达当前路径点
+if (distance < self.pos_tol and 
+    abs(self.normalize_angle(target_yaw - self.cur_rot)) < self.rot_tol):
+    self.wp_index += 1
+    if self.wp_index >= len(self.enu_waypoints):
+        self.get_logger().info("已完成所有路径点！保持最后位置")
+        self.wp_index = max(0, len(self.enu_waypoints) - 1)  # 保持在最后一个点
+    else:
+        self.get_logger().info(
+            f"到达路径点 {self.wp_index}/{len(self.enu_waypoints)} | "
+            f"下一个目标: x={self.enu_waypoints[self.wp_index][0]:.2f}, "
+            f"y={self.enu_waypoints[self.wp_index][1]:.2f}"
+        )
+```
+
+*3. **发布实时数据供可视化**
+
+为了更好的调控参数，可以通过RViz可视化界面实时监测小船位置。需要在脚本中添加TF坐标发布器。详情参考后续章节
+
+```python
+def publish_transforms(self):
+    ......
+```
 
 
 ## path_following
