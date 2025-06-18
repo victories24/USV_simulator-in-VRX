@@ -473,7 +473,7 @@ if (distance < self.pos_tol and
 
 *3. **发布实时数据供可视化**
 
-为了更好的调控参数，可以通过RViz可视化界面实时监测小船位置。需要在脚本中添加TF坐标发布器。详情参考后续章节
+为了更好的调控参数，可以通过RViz可视化界面实时监测小船位置。需要在脚本中添加TF坐标发布器。详情参考后续章节 [RViz可视化](#RViz可视化)
 
 ```python
 def publish_transforms(self):
@@ -483,7 +483,7 @@ def publish_transforms(self):
 
 ## path_following
 ### 路径发布
-### 可视化
+### RViz可视化
 ### 理论
 ### 实现
 
