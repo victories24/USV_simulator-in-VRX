@@ -505,6 +505,10 @@ chmod +x mywamv_wayfinding.py
 ros2 launch vrx_gazebo rviz.launch.py 
 ```
 
+![自动寻路任务实现](picture/mywamv_wayfinding.png)
+
+<br>
+
 ## path_following
 ### 路径发布
 ### RViz可视化
