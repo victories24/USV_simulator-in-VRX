@@ -379,7 +379,12 @@ chmod +x mywamv_station_keeping.py
 
 ![位姿控制任务实现](picture/mywamv_stationkeeping.png)
 
+<br>
+
 ## way_finding
+
+
+
 
 
 ## path_following
