@@ -227,7 +227,7 @@ if dt > 0.0:  # 避免除以零
 ## 项目二：位姿控制
 
 位姿控制是无人船的核心任务之一，在精确导航、抗干扰与稳定跟踪等方面具有重大作用。
-VRX官方提供了位姿控制的任务场景，参考 [Station Keeping](https://github.com/osrf/vrx/wiki/vrx_2023-stationkeeping_task) 。小船需完成从初始点到目标点的移动，并在指定点保持固定的位姿。
+VRX官方提供了位姿控制的任务场景，参考 [Station Keeping Task](https://github.com/osrf/vrx/wiki/vrx_2023-stationkeeping_task) 。小船需完成从初始点到目标点的移动，并在指定点保持固定的位姿。
 
 ![位姿控制](picture/VRX_stationkeeping.png)
 
@@ -383,7 +383,7 @@ chmod +x mywamv_station_keeping.py
 
 ## 项目三：自动寻路
 
-在完成位姿控制的基础上，可以进一步尝试操控小船依次通过多个路径点，并尽可能的匹配每个路径点的位置 $(x,y)$ 与朝向 $$\theta$$ 。VRX官方提供的任务环境参考 [Way Finding](https://github.com/osrf/vrx/wiki/vrx_2023-wayfinding_task))
+在完成位姿控制的基础上，可以进一步尝试操控小船依次通过多个路径点，并尽可能的匹配每个路径点的位置 $(x,y)$ 与朝向 $$\theta$$ 。VRX官方提供的任务环境参考 [Way Finding Task](https://github.com/osrf/vrx/wiki/vrx_2023-wayfinding_task))
 
 ![自动寻路](picture/VRX_wayfinding.png)
 
