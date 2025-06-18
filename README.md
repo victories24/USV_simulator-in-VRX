@@ -16,4 +16,4 @@ vrx v2.4.1
 - VRX仿真环境教学： [VRX_Tutorial](./VRX_Tutorial.md)
 - WAM-V小船运动控制项目详解： [Mywamv_Competition.md](./Mywamv_Competition.md)
 
-
+在此基础上，可以进一步开发无人船的寻路算法和跟踪算法等，并尝试通过PX4控制器向仿真环境输入GPS和IMU感应器数据。
