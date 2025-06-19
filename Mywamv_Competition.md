@@ -521,18 +521,20 @@ ros2 launch vrx_gazebo rviz.launch.py
 
 1. **传统LOS算法**
 
-$$
+```math
 \psi_{des} = \gamma_p + \arctan\left(\frac{-e}{\Delta}\right)
-$$
+```
+其中：
 - $\gamma_p$：路径切线方向角  
 - $e$：横向跟踪误差（Cross-Track Error）  
 - $\Delta$：前视距离（Lookahead Distance）
 
 2. **改进的LOS算法**
 
-$$
+```math
 \psi_{des} = \gamma_p + \arctan\left(\frac{-e}{\Delta}\right) - \beta_{hat}
-$$
+```
+其中：
 - $\beta_{hat}$：估计的侧滑角（风浪/洋流导致的航向偏移）
 
 
