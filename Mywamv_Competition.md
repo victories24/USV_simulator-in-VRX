@@ -509,10 +509,36 @@ ros2 launch vrx_gazebo rviz.launch.py
 
 <br>
 
-## path_following
+
+
+## 项目四：路径跟踪
+
+在完成无人船多路径点的路线后，可以进一步尝试路径跟踪的任务。相比单纯的PID控制，路径跟踪要求更强大、更精细的控制策略，以保证小船以平滑、稳定的方式跟踪给定路径。本文参考 [Fossen的改进LOS理论](https://ieeexplore.ieee.org/document/6868251) 实现无人船的路径跟踪控制算法。具体的理论依据和实现细节如下。
+
+<br>
+
+### 一、改进的LOS理论
+
+1. **传统LOS算法**
+
+$$
+\psi_{des} = \gamma_p + \arctan\left(\frac{-e}{\Delta}\right)
+$$
+- $\gamma_p$：路径切线方向角  
+- $e$：横向跟踪误差（Cross-Track Error）  
+- $\Delta$：前视距离（Lookahead Distance）
+
+2. **改进的LOS算法**
+
+$$
+\psi_{des} = \gamma_p + \arctan\left(\frac{-e}{\Delta}\right) - \beta_{hat}
+$$
+- $\beta_{hat}$：估计的侧滑角（风浪/洋流导致的航向偏移）
+
+
 ### 路径发布
 ### RViz可视化
-### 理论
+
 ### 实现
 
 
