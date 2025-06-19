@@ -535,7 +535,7 @@ ros2 launch vrx_gazebo rviz.launch.py
 
   载体当前位置到路径的垂直距离（即最短距离），反映了载体偏离路径的程度，即路径跟踪的收敛性和稳态误差。正、负号一般代表偏向路径左、右侧。误差也可以通过反馈控制调控前视距离 $$\Delta$$ 以加速收敛。
 
-LOS算法核心
+根据前视点提供的指引，可以计算出小船的航向角 $$\psi_{des}$$
 
 ```math
 \psi_{des} = \gamma_p + \arctan\left(\frac{-e}{\Delta}\right)
