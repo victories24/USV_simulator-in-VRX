@@ -548,6 +548,8 @@ ros2 launch vrx_gazebo rviz.launch.py
 
 2. **改进的LOS算法**
 
+传统的LOS算法虽然简单高效，但没有考虑环境因素造成的稳态误差，可能导致载体无法收敛
+
 ```math
 \psi_{des} = \gamma_p + \arctan\left(\frac{-e}{\Delta}\right) - \beta_{hat}
 ```
