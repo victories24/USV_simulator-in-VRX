@@ -515,8 +515,6 @@ ros2 launch vrx_gazebo rviz.launch.py
 
 在完成无人船多路径点的路线后，可以进一步尝试路径跟踪的任务。相比单纯的PID控制，路径跟踪要求更强大、更精细的控制策略，以保证小船以平滑、稳定的方式跟踪给定路径。本文参考 [Fossen的改进LOS理论](https://ieeexplore.ieee.org/document/6868251) 实现无人船的路径跟踪控制算法。具体的理论依据和实现细节如下。
 
-<br>
-
 ### 一、改进的LOS理论
 
 1. **传统LOS算法**
@@ -710,7 +708,7 @@ chmod +x mywamv_path_follow_adpLOS.py
 ros2 launch vrx_gazebo rviz.launch.py 
 ```
 
-![自动寻路任务实现](picture/mywamv_wayfinding.png)
+![路径跟踪实现](picture/mywamv_path_follow.png)
 
 <br>
 
