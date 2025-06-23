@@ -567,8 +567,6 @@ ros2 launch vrx_gazebo rviz.launch.py
 - **高曲率/大误差**：缩小前视距离 → 提升跟踪灵敏度
 - **低曲率/小误差**：增大前视距离 → 增强运动平滑性
 
-算法实现如下：
-
 ```python
 def adaptive_lookahead(self, cross_track_error, speed=1.0):
     # 1. 估计路径曲率
@@ -594,6 +592,86 @@ def adaptive_lookahead(self, cross_track_error, speed=1.0):
 
 2. **前视点计算**
 
+利用前视距离在路径上动态确定一个目标点，使得无人船：
+- 平滑收敛到路径
+- 避免高频振荡
+- 适应路径曲率变化
+
+```python
+def find_lookahead_point(self):
+    # 初始化变量
+    closest_dist = float('inf')
+    closest_idx = 0
+    lookahead_point = None
+    tangent = None
+    accumulated_dist = 0.0
+
+    # 步骤1：寻找最近路径点
+    for i in range(len(self.path_points)):
+        point = np.array(self.path_points[i])
+        dist = np.lypoint - self.cur_pos)
+        if dist < closest_dist:
+            closest_dist = dist
+            closest_idx = i
+
+    # 步骤2：从最近点开始累积距离
+    prev_point = np.array(self.path_points[closest_idx])
+    for i in range(closest_idx, len(self.path_points)):
+        current_point = np.array(self.path_points[i])
+        segment_dist = np.linalg.norm(current_point - prev_point)
+        accumulated_dist += segment_dist
+        
+        # 步骤3：找到首个超过前视距离的点
+        if accumulated_dist >= self.lookahead_dist:
+            lookahead_point = current_point
+            tangent = np.array(self.path_tangents[i])
+            self.current_target_idx = i  # 更新当前目标索引
+            break
+        
+        prev_point = current_point
+    
+    # 步骤4：处理路径末端情况
+    if lookahead_point is None:
+        lookahead_point = np.array(self.path_points[-1])
+        tangent = np.array(self.path_tangents[-1])
+        self.current_target_idx = len(self.path_points) - 1
+        
+    return lookahead_point, tangent
+```
+
+3. **LOS航向角引导**
+
+```math
+\psi_{des} = \psi_{path} + \alpha_{los} - \beta
+```
+
+
+```python
+def los_guidance(self, lookahead_point, tangent):
+    # 1. 计算横向误差
+    cross_track_error = self.compute_cross_track_error(lookahead_point, tangent)
+    
+    # 2. 计算路径方向角
+    path_angle = math.atan2(tangent[1], tangent[0])
+    
+    # 3. 基础LOS角度计算
+    los_angle = math.atan2(-cross_track_error, self.lookahead_dist)
+    
+    # 4. 侧滑角自适应更新
+    gamma = 0.1  # 自适应增益
+    U = max(0.5, abs(self.last_cmd.linear.x))  # 速度下限
+    denominator = math.sqrt(self.lookahead_dist**2 + 
+                         (cross_track_error + self.lookahead_dist*self.beta_hat)**2)
+    
+    beta_delta = gamma * U * self.lookahead_dist * cross_track_error / denominator * 0.02
+    beta_delta = np.clip(beta_delta, -math.radians(5), math.radians(5))
+    self.beta_hat = self.normalize_angle(self.beta_hat + beta_delta)
+    self.beta_hat = np.clip(self.beta_hat, -math.radians(30), math.radians(30))
+    
+    # 5. 综合期望航向
+    desired_heading = path_angle + los_angle - self.beta_hat
+    return self.normalize_angle(desired_heading)
+```
 
 
 
