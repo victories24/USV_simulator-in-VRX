@@ -436,7 +436,7 @@ def waypoint_callback(self, msg):
 
 在接近模式中，为了防止小船达到目标角度后只进行平移，将横向速度输出指令设为零，只对前进方向的速度进行调节。控制小船朝着目标点方向行进，在距离小于阈值进入保持阶段时再进行角度的调节。
 
-```bash
+```python
 if distance > self.goal_tol:
     # 接近模式
     cmd_vel.linear.x = float(np.clip(self.v_const * along_err, -self.v_limit, self.v_limit))
@@ -455,7 +455,7 @@ else:
 
 接近每个路径点时，用误差判断是否已经到达，并且切换到下一目标点。如果在仿真中发现小船调整过慢影响寻路连贯性，可以适当增加阈值放宽标准。
 
-```bash
+```python
 # 检查是否到达当前路径点
 if (distance < self.pos_tol and 
     abs(self.normalize_angle(target_yaw - self.cur_rot)) < self.rot_tol):
@@ -674,11 +674,52 @@ def los_guidance(self, lookahead_point, tangent):
     return self.normalize_angle(desired_heading)
 ```
 
-4. ****
+4. **调试与验证**
+
+- 启动仿真环境和逆运动学脚本
+
+```bash
+ros2 launch vrx_gz competition.launch.py world:=sydney_regatta
+```
+
+```bash
+./mywamv_inverse_kinematics.py
+```
+
+- 启动路径发布脚本，提供可跟踪的路径。详见 [路径发布](#三路径发布)
+
+```bash
+chmod +x figure_eight_generator.py
+./figure_eight_generator.py
+
+# 也可以选择发布更复杂的路径
+chmod +x dubins_path_generator.py
+./dubins_path_generator.py
+```
+
+- 启动路径跟踪脚本
+
+```bash
+chmod +x mywamv_path_follow_adpLOS.py
+./mywamv_path_follow_adpLOS.py
+```
+
+- 启动RViz配置文件，观察无人船跟踪效果。详见 [RViz可视化](#四RViz可视化)
+
+```bash
+ros2 launch vrx_gazebo rviz.launch.py 
+```
+
+![自动寻路任务实现](picture/mywamv_wayfinding.png)
+
+<br>
 
 
-### 路径发布
-### RViz可视化
+
+
+
+### 三、路径发布
+### 四、RViz可视化
 
 
 
