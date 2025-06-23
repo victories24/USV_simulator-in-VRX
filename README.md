@@ -11,19 +11,19 @@ gazebo garden v7.9.0
 vrx v2.4.1
 ```
 
-`vrx_ws` 包含整合的VRX环境工作包，参考 
+- `vrx_ws` 包含整合的VRX环境工作包，参考 [VRX Tutorial](https://github.com/osrf/vrx/wiki/tutorials)
 
-`my_wamv` 包含自建的无人船仿真任务配置和脚本，其中：
-- `config` ：无人船推进器和感应器配置文件
-- `urdf` ：无人船配置文件
-- `dubins_path_generator.py` ：为路径跟踪任务生成复杂路径
-- `figure_eight_generator.py` ：为路径跟踪任务生成八字型测试路径
-- `mywamv.launch.py` ：整合项目启动文件
-- `mywamv_keyboard_control.py` ：键盘操纵无人船运动
-- `mywamv_path_follow_adpLOS.py` ：自适应LOS算法实现路径跟踪
-- `mywamv_station_keeping.py` ：位姿控制任务
-- `mywamv_velocity.py` ：测速脚本
-- `mywamv_wayfinding.py` ：自动寻路任务
+- `my_wamv` 包含自建的无人船仿真任务配置和脚本，其中：
+  - `config` ：无人船推进器和感应器配置文件
+  - `urdf` ：无人船配置文件
+  - `dubins_path_generator.py` ：为路径跟踪任务生成复杂路径
+  - `figure_eight_generator.py` ：为路径跟踪任务生成八字型测试路径
+  - `mywamv.launch.py` ：整合项目启动文件
+  - `mywamv_keyboard_control.py` ：键盘操纵无人船运动
+  - `mywamv_path_follow_adpLOS.py` ：自适应LOS算法实现路径跟踪
+  - `mywamv_station_keeping.py` ：位姿控制任务
+  - `mywamv_velocity.py` ：测速脚本
+  - `mywamv_wayfinding.py` ：自动寻路任务
 
 
 具体的项目实现细节分以下文档进行陈述：
