@@ -559,6 +559,41 @@ ros2 launch vrx_gazebo rviz.launch.py
 
 ### 二、LOS算法实现
 
+本文在LOS算法的基础上，综合多种因素动态调节前视距离和前视点，并加入侧滑角来补偿风场和水流带来的偏差。参考  [mywamv_path_follow.py](./my_wamv/mywamv_path_follow_adpLOS.py)
+
+1. **自适应前视距离**
+
+自适应前视距离通过动态调整 `lookahead_dist` ，平衡跟踪精度与运动平滑性：
+- **高曲率/大误差**：缩小前视距离 → 提升跟踪灵敏度
+- **低曲率/小误差**：增大前视距离 → 增强运动平滑性
+
+算法实现如下：
+
+```python
+def adaptive_lookahead(self, cross_track_error, speed=1.0):
+    # 1. 估计路径曲率
+    path_curvature = self.estimate_path_curvature()
+    
+    # 2. 基础前视距离计算（速度+曲率补偿）
+    base_lookahead = self.min_lookahead + 2.5 * speed
+    base_lookahead *= 1.0 / (1.0 + 8.0 * path_curvature)  # 曲率抑制因子
+    
+    # 3. 误差增益调节
+    if self.converge_mode:  # 收敛模式
+        error_gain = 1.0 + 0.2 * abs(cross_track_error)  # 正向增益
+    else:                  # 跟踪模式
+        error_gain = np.clip(1.0 - 0.05 * abs(cross_track_error), 0.5, 1.2)  # 反向增益
+    
+    # 4. 最终前视距离计算
+    self.lookahead_dist = np.clip(
+        base_lookahead * error_gain,
+        self.min_lookahead,
+        self.max_lookahead
+    )
+```
+
+2. **前视点计算**
+
 
 
 
