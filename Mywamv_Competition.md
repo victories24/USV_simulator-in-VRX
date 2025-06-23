@@ -592,7 +592,7 @@ def adaptive_lookahead(self, cross_track_error, speed=1.0):
 
 2. **前视点计算**
 
-利用前视距离在路径上动态确定一个目标点，使得无人船：
+利用前视距离在路径上动态确定一个目标点，引导无人船向着目标点行驶，保证无人船：
 - 平滑收敛到路径
 - 避免高频振荡
 - 适应路径曲率变化
@@ -641,10 +641,11 @@ def find_lookahead_point(self):
 
 3. **LOS航向角引导**
 
+根据公式更新航向角，前视点指导路径方向角 $$\alpha_{los}$$ 更新，侧滑角 $$\beta$$ 补偿环境干扰：
+
 ```math
 \psi_{des} = \psi_{path} + \alpha_{los} - \beta
 ```
-
 
 ```python
 def los_guidance(self, lookahead_point, tangent):
@@ -673,6 +674,7 @@ def los_guidance(self, lookahead_point, tangent):
     return self.normalize_angle(desired_heading)
 ```
 
+4. ****
 
 
 ### 路径发布
