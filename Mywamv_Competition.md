@@ -548,7 +548,7 @@ ros2 launch vrx_gazebo rviz.launch.py
 
 2. **改进的LOS算法**
 
-传统的LOS算法虽然简单高效，但没有考虑环境因素造成的稳态误差，可能导致载体无法收敛
+传统的LOS算法虽然简单高效，但没有考虑环境因素造成的稳态误差，可能导致载体无法收敛。Fossen提出的自适应LOS算法通过引入侧滑角的概念，对无人船因环境因素导致的偏移进行补偿。
 
 ```math
 \psi_{des} = \gamma_p + \arctan\left(\frac{-e}{\Delta}\right) - \beta_{hat}
@@ -557,10 +557,15 @@ ros2 launch vrx_gazebo rviz.launch.py
 - $\beta_{hat}$：估计的侧滑角（风浪/洋流导致的航向偏移）
 
 
+### 二、LOS算法实现
+
+
+
+
 ### 路径发布
 ### RViz可视化
 
-### 实现
+
 
 
 
