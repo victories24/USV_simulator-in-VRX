@@ -25,6 +25,7 @@ vrx v2.4.1
   - `mywamv_station_keeping.py` ：位姿控制任务
   - `mywamv_velocity.py` ：测速脚本
   - `mywamv_wayfinding.py` ：自动寻路任务
+  - `rviz.launch.py` ：Rviz配置启动文件
 
 具体的项目实现细节分以下文档进行陈述：
 
