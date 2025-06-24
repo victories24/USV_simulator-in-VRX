@@ -1001,7 +1001,11 @@ def generate_launch_description():
     ])
 ```
 
+在完成上述操作后，可以在终端同时启动仿真环境、逆运动学、路径发布、路径跟踪和RViz可视化进程：
 
+```bash
+ros2 launch vrx_gz mywamv.launch.py world:=sydney_ragatta rviz:=path_static_tf
+```
 
 
 
