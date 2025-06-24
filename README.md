@@ -11,7 +11,7 @@ gazebo garden v7.9.0
 vrx v2.4.1
 ```
 
-- `vrx_ws` 包含整合的VRX环境工作包，参考 [VRX Tutorial](https://github.com/osrf/vrx/wiki/tutorials)
+- `vrx_ws` 包含整合的VRX环境工作包，参考 [VRX官方文档](https://github.com/osrf/vrx/wiki/tutorials)
 
 - `my_wamv` 包含自建的无人船仿真任务配置和脚本，其中：
   - `config` ：无人船推进器和感应器配置文件
