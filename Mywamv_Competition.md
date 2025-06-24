@@ -833,7 +833,7 @@ ros2 launch vrx_gazebo rviz.launch.py
 
 这里显示的是以 `base_link` 为基础的坐标系：
 
-![原RViz界面]()
+![原RViz界面](./picture/mywamv_rviz_step1.png)
 
 <br>
 
