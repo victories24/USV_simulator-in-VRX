@@ -712,11 +712,42 @@ ros2 launch vrx_gazebo rviz.launch.py
 
 <br>
 
-
-
-
-
 ### 三、路径发布
+
+VRX并没有直接提供为路径跟踪设计的任务环境，所以我们需要自己发布路径信息到ROS中，并直接在 `sydney_regatta` 世界中进行测试（最好删除浮标，防止阻碍路线）。
+
+本文提供了两种路线供选择：
+- `figure_eight_generator` :生成八字型路径，包含基本的直线和弯道，适合调试参数。
+- `dubins_path_generator` :生成复杂的平滑路径，为小船提供包含多种曲率的测试场景，适合测试最终效果。
+
+测试时，建议先在 `sydney_regatta.world` 文件中修改障碍物、水流与风速，以便调整无干扰下的无人船控制。待调整完善后再添加环境因素，并针对侧滑角进行调整。
+
+类似的参数调试如下：
+- 转弯调整过慢：  增大曲率影响因子，减小前视距离和速度，增强转向，增大误差补偿
+```python
+base_lookahead *= 1.0 / (1.0 + 5.0 * path_curvature)
+speed_limit *= 1.0 / (1.0 + 5.0 * path_curvature) # 高曲率时减速
+curvature_gain = 1.0 + 2.0 * path_curvature # 高曲率时增强转向
+beta_compensation = math.sin(self.beta) * min(1.5, abs(cross_track_error)/3.0)
+```
+- 平均速度：调整速度限制，调节控制器PID参数（注意超调）
+```python
+self.speed_limit = 3.0
+self.pid_vx = PIDController(kP=1.2, kI=0.05, kD=0.1)
+self.pid_wz = PIDController(kP=0.8, kI=0.03, kD=0.2) 
+```
+- 船头摇摆：
+```python
+# 在__init__中调整PID参数
+self.pid_wz = PIDController(
+    kP=0.6,  # 降低比例增益
+    kI=0.01, # 减少积分项
+    kD=0.3   # 增加微分项
+)
+```
+
+
+
 ### 四、RViz可视化
 
 
