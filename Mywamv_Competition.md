@@ -746,11 +746,98 @@ self.pid_wz = PIDController(
 )
 ```
 
+可能出现的问题：
+- 前视点在路径上跳变：
+  路径点之间距离过大，导致前视点变化不平滑。可以在路径生成器中适当增加路径点的数量。
+```python
+self.num_points = 200  # 增加点数使方向更平滑
+```
 
 
 ### 四、RViz可视化
 
+在前几个项目中，我们可以直接在gazebo中看到设定的目标点与方向。但在路径跟踪项目中，需要借助RViz观察发布的路径以及无人船的跟踪效果。
 
+1. **发布TF坐标**
+
+在 `mywamv_path_follow_adpLOS.py` 中，添加以下代码，为RViz提供TF坐标和坐标变换。
+
+- 发布静态坐标系原点，建立参考系：
+```python
+def publish_static_tf(self):
+        """发布 world 到局部坐标系 (-532, 160) 的静态 TF"""
+        static_transform = TransformStamped()
+        static_transform.header.stamp = self.get_clock().now().to_msg()
+        static_transform.header.frame_id = 'world'
+        static_transform.child_frame_id = 'local_frame'  # 局部坐标系名称
+        static_transform.transform.translation.x = -532.0  # 设置局部坐标系原点
+        static_transform.transform.translation.y = 160.0
+        static_transform.transform.translation.z = 0.0
+        static_transform.transform.rotation.w = 1.0  # 无旋转
+        self.static_tf_broadcaster.sendTransform(static_transform)
+        self.get_logger().info("已发布静态 TF: world → local_frame (-532, 160)")
+```
+- 发布无人船位姿变换，显示无人船位置：
+```python
+    def publish_transforms(self):
+        """发布TF坐标（小船坐标）"""
+        if self.cur_pos is None or self.cur_rot is None:
+            return
+
+        # 发布WAMV当前位姿
+        t_wamv = TransformStamped()
+        t_wamv.header.stamp = self.get_clock().now().to_msg()
+        t_wamv.header.frame_id = 'world'
+        t_wamv.child_frame_id = 'wamv/base_link'
+        t_wamv.transform.translation.x = float(self.cur_pos[0])
+        t_wamv.transform.translation.y = float(self.cur_pos[1])
+        t_wamv.transform.rotation.z = math.sin(self.cur_rot / 2)
+        t_wamv.transform.rotation.w = math.cos(self.cur_rot / 2)
+        self.tf_broadcaster.sendTransform(t_wamv)
+```
+- 发布前视点标记，实时显示前视点：
+```python
+    def publish_markers(self):
+        """发布前视点标记"""
+        if self.current_lookahead is not None:
+            marker = Marker()
+            marker.header.frame_id = "world"
+            marker.header.stamp = self.get_clock().now().to_msg()
+            marker.type = Marker.SPHERE
+            marker.action = Marker.ADD
+            marker.scale.x = marker.scale.y = marker.scale.z = 0.5  # 缩小尺寸
+            marker.color.r, marker.color.g, marker.color.b = 1.0, 0.0, 0.0
+            marker.color.a = 0.8
+            marker.pose.position = Point(
+                x=float(self.current_lookahead[0]),
+                y=float(self.current_lookahead[1]),
+                z=0.0
+            )
+            self.marker_pub.publish(marker)
+```
+
+2. **修改RViz配置文件**
+
+`my_wamv` 包提供了已经配置好的RViz文件。以 `path_static_tf.rviz` 为例，配置一个固定视角的可视化RViz文件：
+
+首先，按照 [4.调节与测试](#二LOS算法实现) 加载法仿真环境，并启动RViz默认配置：
+```bash
+ros2 launch vrx_gz competition.launch.py world:=sydney_regatta
+
+./figure_eight_generator.py
+
+./mywamv_path_follow_adpLOS.py
+
+ros2 launch vrx_gazebo rviz.launch.py 
+```
+
+这里显示的是以 `base_link` 为基础的坐标系：
+
+![原RViz界面]()
+
+<br>
+
+在
 
 
 
