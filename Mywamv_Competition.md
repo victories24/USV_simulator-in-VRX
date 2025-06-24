@@ -869,6 +869,8 @@ def generate_launch_description():
 ros2 launch vrx_gazebo rviz.launch.py 
 ```
 
+<br>
+
 ## 项目整合
 
 在上述项目中，需要同时打开多个终端运行各个脚本。本篇提供一种方法，参考 `competition.launch.py` 将各脚本整合为ROS节点，一齐通过 `mywamv.launch.py` 启动。参照以下步骤进行整合：
