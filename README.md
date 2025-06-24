@@ -16,6 +16,7 @@ vrx v2.4.1
 - `my_wamv` 包含自建的无人船仿真任务配置和脚本，其中：
   - `config` ：无人船推进器和感应器配置文件
   - `urdf` ：无人船配置文件
+  - `mywamv_control` ：项目整合工作包
   - `dubins_path_generator.py` ：为路径跟踪任务生成复杂路径
   - `figure_eight_generator.py` ：为路径跟踪任务生成八字型测试路径
   - `mywamv.launch.py` ：整合项目启动文件
@@ -24,7 +25,6 @@ vrx v2.4.1
   - `mywamv_station_keeping.py` ：位姿控制任务
   - `mywamv_velocity.py` ：测速脚本
   - `mywamv_wayfinding.py` ：自动寻路任务
-
 
 具体的项目实现细节分以下文档进行陈述：
 
