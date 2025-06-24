@@ -912,10 +912,53 @@ source install/setup.bash
 
 编译完成后，日常可以在 `vrx_ws/install/lib/mywamv_control` 中，修改各脚本。
 
+2. **编写启动脚本**
 
+在 `vrx_ws/install/share/vrx_gz/launch` 下，添加 `mywamv.launch.py` ，
 
+![创建工作包](/picture/mywamv_项目整合2.png)
 
+在 `competiotion.launch.py` 的基础上，添加下列节点：
 
+```python
+inverse_kinematics_node = Node(
+        package='mywamv_control',
+        executable='mywamv_inverse_kinematics.py',
+        name='mywamv_inverse_kinematics',
+        output='screen',
+    )
+path_follow_node = Node(
+        package='mywamv_control',
+        executable='mywamv_path_follow.py',
+        name='mywamv_path_follow',
+        output='screen'
+    )
+        
+# 如果不是无头模式，启动RViz
+rviz_node = Node(
+        package='rviz2',
+        namespace='',
+        executable='rviz2',
+        name='rviz2',
+        arguments=['-d' + os.path.join(get_package_share_directory('vrx_gazebo'), 'config', 'path_static_tf.rviz')]
+)
+
+path_generator_node = Node(
+    package='mywamv_control',
+    #executable='dubins_path_generator.py',
+    executable='figure_eight_generator.py',
+    name='path_generator',
+    output='screen'
+)
+
+# 将所有节点添加到Launch进程中
+launch_processes.extend([
+    inverse_kinematics_node,
+    path_follow_node,
+    rviz_node,
+    path_generator_node 
+])
+```
 
 
 
