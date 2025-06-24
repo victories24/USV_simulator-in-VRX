@@ -835,11 +835,36 @@ ros2 launch vrx_gazebo rviz.launch.py
 
 ![原RViz界面](/picture/mywamv_rviz_step1.png)
 
-![自动寻路任务实现](picture/mywamv_wayfinding.png)
-<br>
+在 `Displays` 中点击 `Add` 添加 `TF` 和 `Marker`
 
-在
+![添加TF坐标](/picture/mywamv_rviz_step2.png)
 
+修改 `Fixed Frame` 为 `local_frame` ；修改 `Topic` 为 `/lookahead_marker`
 
+![修改Display](/picture/mywamv_rviz_step3.png)
+
+点击 `File` `Save Config As` 保存在 `<VRX_workplace>/install/share/vrx_gazebo/config` 下
+
+![保存配置文件](/picture/mywamv_rviz_step4.png)
+
+最后，修改 `<VRX_workplace>/install/share/vrx_gazebo/launch` 下的RViz启动文件 `rivz.launch.py` ，将文件名改为刚才保存的配置文件：
+
+```python
+def generate_launch_description():
+    rvz = Node(
+            package='rviz2',
+            namespace='',
+            executable='rviz2',
+            name='rviz2',
+            arguments=['-d' + os.path.join(get_package_share_directory('vrx_gazebo'), 'config', 'path_static_tf.rviz')]
+        )
+    return LaunchDescription([rvz])
+```
+
+如此，在之后的项目中可以直接启动自己配置的可视化RViz文件：
+
+```bash
+ros2 launch vrx_gazebo rviz.launch.py 
+```
 
 ## 项目整合
