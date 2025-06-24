@@ -870,3 +870,51 @@ ros2 launch vrx_gazebo rviz.launch.py
 ```
 
 ## 项目整合
+
+在上述项目中，需要同时打开多个终端运行各个脚本。本篇提供一种方法，参考 `competition.launch.py` 将各脚本整合为ROS节点，一齐通过 `mywamv.launch.py` 启动。参照以下步骤进行整合：
+
+1. **VRX下添加新工作包**
+
+在 `vrx_ws/src` 下创建工作包 
+
+```bash
+cd ~/vrx_ws/src
+ros2 pkg create --build-type ament_python mywamv_control
+```
+
+创建scripts文件夹，并将独立脚本都放在其内 `vrx_ws/src/mywamv_control/scripts/`
+
+![创建工作包](/picture/mywamv_项目整合1.png)
+
+修改setup.py，加上对应脚本：
+
+```python
+setup(
+    ......
+    scripts=['scripts/mywamv_inverse_kinematics.py',
+    'scripts/mywamv_path_follow.py',
+    'scripts/mywamv_station_keeping.py',
+    'scripts/mywamv_wayfinding.py',
+    'scripts/dubins_path_generator.py',
+    'scripts/figure_eight_generator.py'],
+)
+```
+
+重新编译：
+
+```bash
+cd ~/vrx_ws
+colcon build --merge-install
+source install/setup.bash
+```
+
+编译完成后，日常可以在 `vrx_ws/install/lib/mywamv_control` 中，修改各脚本。
+
+
+
+
+
+
+
+
+
