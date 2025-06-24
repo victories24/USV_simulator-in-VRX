@@ -554,6 +554,7 @@ ros2 launch vrx_gazebo rviz.launch.py
 其中：
 - $\beta_{hat}$：估计的侧滑角（风浪/洋流导致的航向偏移）
 
+<br>
 
 ### 二、LOS算法实现
 
@@ -753,6 +754,7 @@ self.pid_wz = PIDController(
 self.num_points = 200  # 增加点数使方向更平滑
 ```
 
+<br>
 
 ### 四、RViz可视化
 
