@@ -1001,6 +1001,8 @@ def generate_launch_description():
     ])
 ```
 
+<br>
+
 在完成上述操作后，可以在终端同时启动仿真环境、逆运动学、路径发布、路径跟踪和RViz可视化进程：
 
 ```bash
